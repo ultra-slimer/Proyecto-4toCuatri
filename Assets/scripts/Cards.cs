@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Defense : MonoBehaviour
+public class Cards : MonoBehaviour
 {
     [SerializeField]
     float _Health;
@@ -11,7 +11,8 @@ public class Defense : MonoBehaviour
     [SerializeField]
     float _Damage;
     [SerializeField]
-    int _Cost;
+    int _Cost;   
+    public Sprite AssignedCard;
     
 
     virtual public void Shoot()

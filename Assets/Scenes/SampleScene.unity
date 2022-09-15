@@ -366,6 +366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cuadricula
       objectReference: {fileID: 0}
+    - target: {fileID: 5304796442062020659, guid: f462453db361ecc48a815dad4475b260,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f462453db361ecc48a815dad4475b260, type: 3}
 --- !u!1 &4336824909944680898 stripped

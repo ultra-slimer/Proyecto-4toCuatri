@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6764771592307306251}
   - component: {fileID: 1783739035425121188}
   - component: {fileID: 7884291341909938850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &807781876075125546
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4064012845947185035}
   - component: {fileID: 4456393505530451766}
   - component: {fileID: 5682767533248182937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,8 +188,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &942622996727384928
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 3931145041744142828}
   - component: {fileID: 6772314452223063138}
   - component: {fileID: 2948222234002414000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,8 +283,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1099536363915266988
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 698446297600482692}
   - component: {fileID: 4918939084870711082}
   - component: {fileID: 4303895222812061416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,8 +378,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1550845337787183606
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 164683735849204930}
   - component: {fileID: 5308595643990796380}
   - component: {fileID: 8851211928099148974}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,8 +473,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1567060099722342300
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 1577015962728660230}
   - component: {fileID: 3937209909480790276}
   - component: {fileID: 7809079931117292434}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,8 +568,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1826261002802874464
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 6692117513878084447}
   - component: {fileID: 8317586369855767684}
   - component: {fileID: 500948326622154555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,8 +663,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2042361733300080539
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 8542860765154971847}
   - component: {fileID: 1664282292412837168}
   - component: {fileID: 6450239382821191764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,8 +758,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2493209910631034539
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 8958620918002324309}
   - component: {fileID: 2461452113154835537}
   - component: {fileID: 3701085805934394347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,8 +853,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2553665580652400340
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ GameObject:
   - component: {fileID: 8121127896351940903}
   - component: {fileID: 8139392384420116069}
   - component: {fileID: 23605279175265876}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -948,8 +948,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2618620643716350352
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 7696844801062459418}
   - component: {fileID: 8174330452530508094}
   - component: {fileID: 6700983508411731058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1043,8 +1043,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3064002982531173799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1057,7 @@ GameObject:
   - component: {fileID: 4210404590040220021}
   - component: {fileID: 413503022152473527}
   - component: {fileID: 302099130873639509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,8 +1138,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3141738634887777772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,7 +1152,7 @@ GameObject:
   - component: {fileID: 1062039298039006987}
   - component: {fileID: 7883985399935903211}
   - component: {fileID: 6856748232905699905}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,8 +1233,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4027100623504039868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 6817710673416335468}
   - component: {fileID: 4340265559670912365}
   - component: {fileID: 6295810244087980376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1328,8 +1328,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4082125803779188068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ GameObject:
   - component: {fileID: 6824746078441708817}
   - component: {fileID: 2742355569547512073}
   - component: {fileID: 1051782202374033408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,8 +1423,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4129702875388917478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1437,7 @@ GameObject:
   - component: {fileID: 7652456598032889629}
   - component: {fileID: 7314830305413268401}
   - component: {fileID: 5134516318449487945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,8 +1518,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4336824909689817140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 4336824909689817145}
   - component: {fileID: 4336824909689817142}
   - component: {fileID: 978952382392564449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1613,8 +1613,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4336824910292283043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1627,7 @@ GameObject:
   - component: {fileID: 4336824910292283044}
   - component: {fileID: 4336824910292283045}
   - component: {fileID: 2871331925403169687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1708,8 +1708,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4336824910695232173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1722,7 @@ GameObject:
   - component: {fileID: 4336824910695232174}
   - component: {fileID: 4336824910695232175}
   - component: {fileID: 10388982962796348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1803,8 +1803,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4336824911109441558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1817,7 @@ GameObject:
   - component: {fileID: 4336824911109441563}
   - component: {fileID: 4336824911109441560}
   - component: {fileID: 3832279378854437094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1898,8 +1898,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4373998766912852886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,7 +1912,7 @@ GameObject:
   - component: {fileID: 2130530555544240263}
   - component: {fileID: 3823737722926298350}
   - component: {fileID: 2675027873487218481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1993,8 +1993,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4604331549360242641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +2007,7 @@ GameObject:
   - component: {fileID: 3627890258077395034}
   - component: {fileID: 8597264799756886648}
   - component: {fileID: 648888067864110656}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2088,8 +2088,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4618241548501519768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 7105783387315179345}
   - component: {fileID: 7175468953585825402}
   - component: {fileID: 9172107509544777232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2183,8 +2183,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4642405241580499361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,7 +2197,7 @@ GameObject:
   - component: {fileID: 3641415386569808841}
   - component: {fileID: 8935399142851665447}
   - component: {fileID: 5277630864288763762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (71)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2278,8 +2278,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4925127897287369677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,7 +2292,7 @@ GameObject:
   - component: {fileID: 5905190247743160966}
   - component: {fileID: 3415861301828758432}
   - component: {fileID: 4837238930397964541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2373,8 +2373,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5304796442062020659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,7 +2384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2934085164471908983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cuadricula
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2462,7 +2462,7 @@ GameObject:
   - component: {fileID: 4448588512571274565}
   - component: {fileID: 1492667609571794528}
   - component: {fileID: 1538588099988667850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2543,8 +2543,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5847102344722338345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,7 +2557,7 @@ GameObject:
   - component: {fileID: 1240294845813385090}
   - component: {fileID: 8995893420758022924}
   - component: {fileID: 5140468627110673380}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2638,8 +2638,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5890304466313200533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,7 +2652,7 @@ GameObject:
   - component: {fileID: 8257474490988590817}
   - component: {fileID: 6663322423432826103}
   - component: {fileID: 664519236060457217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2733,8 +2733,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6165055112047320016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,7 +2747,7 @@ GameObject:
   - component: {fileID: 7188612519151817868}
   - component: {fileID: 3784852312813728214}
   - component: {fileID: 6596785918019706398}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2828,8 +2828,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6556220569051472468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,7 +2842,7 @@ GameObject:
   - component: {fileID: 4950657452328399097}
   - component: {fileID: 8903612902523040141}
   - component: {fileID: 1589615325155107831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2923,8 +2923,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6600052728238576510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +2937,7 @@ GameObject:
   - component: {fileID: 8158137341498843659}
   - component: {fileID: 2560198219449522769}
   - component: {fileID: 2139021786018979455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3018,8 +3018,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6690349031305931128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,7 +3032,7 @@ GameObject:
   - component: {fileID: 6004247538747570664}
   - component: {fileID: 7669007445066406749}
   - component: {fileID: 6260608392550139300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3113,8 +3113,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6709960232402039394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,7 +3127,7 @@ GameObject:
   - component: {fileID: 554172169226887952}
   - component: {fileID: 4926062471939392010}
   - component: {fileID: 315348622338671065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3208,8 +3208,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6981723968471095953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,7 +3222,7 @@ GameObject:
   - component: {fileID: 7257682306689819086}
   - component: {fileID: 8528397836293385138}
   - component: {fileID: 2907523673604780468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3303,8 +3303,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7189484782575955838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,7 +3317,7 @@ GameObject:
   - component: {fileID: 3630858020349169868}
   - component: {fileID: 6205950631918138981}
   - component: {fileID: 3813503832975352809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3398,8 +3398,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7728105833189153781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,7 +3412,7 @@ GameObject:
   - component: {fileID: 7186023304661978926}
   - component: {fileID: 2494395324809117202}
   - component: {fileID: 3180048224810598550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3493,8 +3493,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7842152308121400180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,7 +3507,7 @@ GameObject:
   - component: {fileID: 1291059817103956746}
   - component: {fileID: 2953108028823699476}
   - component: {fileID: 7415610459117344496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3588,8 +3588,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8009307994246203282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,7 +3602,7 @@ GameObject:
   - component: {fileID: 6797151199146448911}
   - component: {fileID: 6922742557189031208}
   - component: {fileID: 881547098267614466}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3683,8 +3683,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8359353342828208308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3697,7 +3697,7 @@ GameObject:
   - component: {fileID: 4215437431980311462}
   - component: {fileID: 6394636229711942655}
   - component: {fileID: 8113662066957940335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3778,8 +3778,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8444214892518868016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3792,7 +3792,7 @@ GameObject:
   - component: {fileID: 8390559834253151244}
   - component: {fileID: 2978306733968426615}
   - component: {fileID: 2365815847290243392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3873,8 +3873,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8729481047658626863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,7 +3887,7 @@ GameObject:
   - component: {fileID: 1060376886686313175}
   - component: {fileID: 5379327383695854784}
   - component: {fileID: 2053774341365270516}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3968,8 +3968,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8866397101919995525
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,7 +3982,7 @@ GameObject:
   - component: {fileID: 8586164687185888644}
   - component: {fileID: 6956036848789257297}
   - component: {fileID: 9149142322741455305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4063,8 +4063,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8970282447975124378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,7 +4077,7 @@ GameObject:
   - component: {fileID: 4451516768583330453}
   - component: {fileID: 7047996518338018002}
   - component: {fileID: 6864039066811084886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4158,8 +4158,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8979712997935532799
 GameObject:
   m_ObjectHideFlags: 0
@@ -4172,7 +4172,7 @@ GameObject:
   - component: {fileID: 1610589893400291071}
   - component: {fileID: 4757588936376018282}
   - component: {fileID: 1563518922988315386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4253,8 +4253,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9157202152486697892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4267,7 +4267,7 @@ GameObject:
   - component: {fileID: 5710808937696340079}
   - component: {fileID: 369100000835405863}
   - component: {fileID: 945401662431243089}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4348,5 +4348,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 0.17564583}
-  m_Center: {x: 0, y: 3.5986078e-16, z: -0.08782294}
+  m_Size: {x: 1, y: 1.0000002, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
