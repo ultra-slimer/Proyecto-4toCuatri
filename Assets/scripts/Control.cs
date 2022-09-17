@@ -27,11 +27,11 @@ public class Control : MonoBehaviour
         {
 
             Debug.Log("fun");
-
             Transform t = hit.collider.transform;
             if (t.childCount == 0)
             {
                 GameObject g = Instantiate(D._numberOfCards[0].gameObject, t.position, gameObject.transform.rotation = Quaternion.Euler(0,90,0)) as GameObject;
+                hit.collider.GetComponent<Grid>().CanInteract(false);
                 g.transform.SetParent(t);
             }
         }
