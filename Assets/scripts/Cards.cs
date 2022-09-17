@@ -13,8 +13,11 @@ public class Cards : MonoBehaviour
     [SerializeField]
     int _Cost;   
     public Sprite AssignedCard;
-    
 
+    private void Awake()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+    }
     virtual public void Shoot()
     {
 
