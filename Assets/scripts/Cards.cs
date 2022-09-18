@@ -10,9 +10,10 @@ public class Cards : MonoBehaviour
     float _MaxHealth;
     [SerializeField]
     float _Damage;
-    [SerializeField]
-    int _Cost;   
+    public int _Cost;   
     public Sprite AssignedCard;
+
+    
 
     private void Awake()
     {

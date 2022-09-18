@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 283221533}
   - component: {fileID: 283221535}
   - component: {fileID: 283221534}
+  - component: {fileID: 283221536}
   m_Layer: 5
   m_Name: CantMoney
   m_TagString: Untagged
@@ -370,6 +371,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283221532}
   m_CullTransparentMesh: 1
+--- !u!114 &283221536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283221532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1407c4f60b4f59e4195e2dd295e8f400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextMoney: {fileID: 283221534}
+  _money: 0
 --- !u!1 &320873911
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _numberOfCards:
   - {fileID: -7150399722980910638, guid: 55abaf8d6ccb73349866a217421515db, type: 3}
+  - {fileID: 5359682836339042686, guid: 6c88a90934f283c428a38ecb2f69b3c8, type: 3}
+  CardToUse: 0
   _mazo: {fileID: 64946521}
   _prefabCard: {fileID: 7454054236403721018, guid: c7faade611cf42b4b87bb25cb2c040d2,
     type: 3}
@@ -722,12 +739,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501712378}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -12, y: 2, z: 4.72}
   m_LocalScale: {x: 5, y: 1, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1001 &529400024
 PrefabInstance:
@@ -896,6 +913,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &952089873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952089875}
+  - component: {fileID: 952089874}
+  m_Layer: 0
+  m_Name: Cards
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &952089874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952089873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a3511dcdbb0f249a3a16e5ff0406bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 0
+  _MaxHealth: 0
+  _Damage: 0
+  _Cost: 0
+  AssignedCard: {fileID: 0}
+--- !u!4 &952089875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952089873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12, y: 2, z: 4.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589657302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   D: {fileID: 320873915}
+  U: {fileID: 283221536}
 --- !u!4 &1892686558
 Transform:
   m_ObjectHideFlags: 0
@@ -1021,7 +1087,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111285624
 GameObject:
@@ -1039,7 +1105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2111285625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,10 +1140,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7267417361264974300, guid: 6c88a90934f283c428a38ecb2f69b3c8,
+        type: 3}
+      propertyPath: _MaxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8263912808493054492, guid: 6c88a90934f283c428a38ecb2f69b3c8,
         type: 3}
       propertyPath: m_Name
       value: Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 8263912808493054492, guid: 6c88a90934f283c428a38ecb2f69b3c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8263912808493054495, guid: 6c88a90934f283c428a38ecb2f69b3c8,
         type: 3}
@@ -1087,17 +1163,17 @@ PrefabInstance:
     - target: {fileID: 8263912808493054495, guid: 6c88a90934f283c428a38ecb2f69b3c8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 535.2408
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8263912808493054495, guid: 6c88a90934f283c428a38ecb2f69b3c8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 835.32104
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8263912808493054495, guid: 6c88a90934f283c428a38ecb2f69b3c8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -351.6209
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8263912808493054495, guid: 6c88a90934f283c428a38ecb2f69b3c8,
         type: 3}
