@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     {
         ActMoney(0);   
     }
-
+    
     public void ActMoney(int Add)
     {
         _money += Add;
