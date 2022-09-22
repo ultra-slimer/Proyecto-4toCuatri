@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using System.IO;
 
+
+//Basado en el codigo de Bronson Zgeb https://github.com/UnityTechnologies/UniteNow20-Persistent-Data
 [Serializable]
 public class Save
 {

@@ -3,6 +3,8 @@ using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 
+
+//Hecho por Bronson Zgeb https://github.com/UnityTechnologies/UniteNow20-Persistent-Data
 public static class FileManager
 {
     public static bool WriteToFile(string a_FileName, string a_FileContents)

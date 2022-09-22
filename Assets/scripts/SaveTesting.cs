@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using System.IO;
 
-
+//Basado en codigo mostrado en https://www.youtube.com/watch?v=uD7y4T4PVk0
 [Serializable]
 public class SaveTesting : MonoBehaviour, ISaveable
 {
