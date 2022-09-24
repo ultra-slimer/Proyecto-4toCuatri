@@ -12,12 +12,13 @@ public class Control : MonoBehaviour
     public void Start()
     {
         _layerMask = LayerMask.GetMask("Cuadricula");
+        GameManager.Subscribe("SpawnUnit", Touch);
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))        
-            Touch();
+        if (Input.GetMouseButtonDown(0))
+            GameManager.Trigger("SpawnUnit");
         
     }
 

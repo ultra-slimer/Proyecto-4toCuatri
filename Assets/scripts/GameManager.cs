@@ -5,23 +5,32 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    Text TextMoney;
-   
-   
+    public delegate void EventReceiver();
 
-    int _money;
+    static Dictionary<string, EventReceiver> _events = new Dictionary<string, EventReceiver>();
 
-    void Start()
+    public static void Subscribe(string eventType, EventReceiver listener)
     {
-        ActMoney(0);   
-    }
-    
-    public void ActMoney(int Add)
-    {
-        _money += Add;
-        TextMoney.text = _money.ToString();
+        if (!_events.ContainsKey(eventType))
+            _events.Add(eventType, listener);
+        else
+            _events[eventType] += listener;
     }
 
-  
+    public static void Unsuscribe(string eventType, EventReceiver listener)
+    {
+        if (_events.ContainsKey(eventType))
+        {
+            _events[eventType] -= listener;
+
+            if (_events[eventType] == null)
+                _events.Remove(eventType);
+        }
+    }
+
+    public static void Trigger(string eventType)
+    {
+        if (_events.ContainsKey(eventType))
+            _events[eventType]();
+    }
 }
