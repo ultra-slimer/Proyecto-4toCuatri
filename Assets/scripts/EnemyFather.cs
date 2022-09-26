@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFather : MonoBehaviour
+public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>
 {
     [SerializeField]
     float _life;
@@ -29,5 +29,15 @@ public class EnemyFather : MonoBehaviour
         dir.y = 0;
         transform.forward = dir;
         transform.position += transform.forward * _speed * Time.deltaTime;
+    }
+
+    public void Attack()
+    {
+
+    }
+
+    public void Damage(float damageTaken)
+    {
+
     }
 }
