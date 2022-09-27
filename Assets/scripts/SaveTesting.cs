@@ -11,6 +11,21 @@ public class SaveTesting : MonoBehaviour, ISaveable
     public int Level;
     public int Coins;
     public string UserName;
+    private static string _fileName = string.Empty;
+    public string fileName;
+    private static string _fullPath;
+
+    private void Start()
+    {
+        _fileName = fileName;
+        if (_fileName == string.Empty)
+        {
+            _fileName = "SaveDAT";
+        }
+        _fullPath = Path.Combine(Application.dataPath + @"\Save", _fileName + ".dat");
+        print(_fullPath);
+        LoadFile(this);
+    }
     public void LoadFromSaveData(Save a_Save)
     {
         Coins = a_Save.coins;
@@ -30,7 +45,7 @@ public class SaveTesting : MonoBehaviour, ISaveable
         Save sf = new Save();
         testing.PopulateSaveData(sf);
         
-        if(FileManager.WriteToFile("SaveDAT.dat", sf.SaveData()))
+        if(FileManager.WriteToFile(_fileName + ".dat", sf.SaveData()))
         {
             print("Save Successful" + sf.user + sf.coins + sf.level);
         }
@@ -38,7 +53,7 @@ public class SaveTesting : MonoBehaviour, ISaveable
 
     public static void LoadFile(SaveTesting testing)
     {
-        if (FileManager.LoadFromFile("SaveDAT.dat", out var json))
+        if (FileManager.LoadFromFile(_fileName + ".dat", out var json))
         {
             Save sf = new Save();
             sf.LoadData(json);
@@ -52,10 +67,12 @@ public class SaveTesting : MonoBehaviour, ISaveable
     {
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
+            _fileName = fileName;
             SaveFile(this);
         }
         if (Input.GetKeyDown(KeyCode.KeypadMultiply))
         {
+            _fileName = fileName;
             LoadFile(this);
         }
     }
