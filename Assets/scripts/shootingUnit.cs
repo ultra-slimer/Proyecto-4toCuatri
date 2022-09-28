@@ -29,7 +29,7 @@ public class shootingUnit : Cards
                 //Projectile.transform.position = transform.position;
                 //Projectile.SetActive(true);
                 //Destroy(clone, 3);
-                StartCoroutine("ShootBullet");
+                StartCoroutine("_ShootBullet");
             };
             time = 0;
         }
@@ -39,11 +39,11 @@ public class shootingUnit : Cards
         }
         shoot();
     }
-    private IEnumerator ShootBullet()
+    private IEnumerator _ShootBullet()
     {
         Bullet temp = bulletSpawner.GetOne();
         temp.transform.position = transform.position;
-        yield return new WaitForSeconds(fireRate - 2f);
+        yield return new WaitForSeconds(fireRate * 0.6f);
         bulletSpawner.EndOne(temp);
     }
 
