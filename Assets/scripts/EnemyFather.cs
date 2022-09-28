@@ -61,6 +61,8 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>
 
                 GetComponent<Cards>().Damage(_damage);
 
+               
+
                 Debug.Log("vamo");
             }
         }

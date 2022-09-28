@@ -111,9 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _life: 1
   _speed: 0.5
-  _attackSpeed: 3
+  _attackSpeed: 1.5
   _time: 0
   _damage: 10
   allWaypoints:
   - {fileID: 0}
-  C: {fileID: 0}
