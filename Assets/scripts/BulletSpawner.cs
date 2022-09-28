@@ -20,6 +20,10 @@ public class BulletSpawner : MonoBehaviour
     public Bullet GetOne()
     {
         bullet = _pool.GetObject();
+        if (!bullet.bulletSpawner)
+        {
+            bullet.SetBulletSpawner(this, bullet);
+        }
         return bullet;
     }
 

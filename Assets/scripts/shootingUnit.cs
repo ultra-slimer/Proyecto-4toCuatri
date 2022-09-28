@@ -5,11 +5,11 @@ using UnityEngine;
 public class shootingUnit : Cards
 {
     public float fireRate;
-    public GameObject Projectile;
     public delegate void actions();
     private actions shoot = delegate { };
     private float time;
     public Transform block;
+    public Transform shootStartPoint;
     public BulletSpawner bulletSpawner;
 
     private void Awake()
@@ -42,8 +42,8 @@ public class shootingUnit : Cards
     private IEnumerator _ShootBullet()
     {
         Bullet temp = bulletSpawner.GetOne();
-        temp.transform.position = transform.position;
-        yield return new WaitForSeconds(fireRate * 0.6f);
+        temp.transform.position = shootStartPoint.position;
+        yield return new WaitForSeconds(fireRate * 1.5f);
         bulletSpawner.EndOne(temp);
     }
 
