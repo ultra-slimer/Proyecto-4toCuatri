@@ -10,6 +10,7 @@ public class shootingUnit : Cards
     private actions shoot = delegate { };
     private float time;
     public Transform block;
+    public BulletSpawner bulletSpawner;
 
     private void Awake()
     {
@@ -23,11 +24,12 @@ public class shootingUnit : Cards
         {
             shoot = delegate
             {
-                GameObject clone = Instantiate(Projectile, block);
-                clone.GetComponent<Rigidbody>().velocity = block.TransformDirection(Vector3.right * 20);
+                //GameObject clone = Instantiate(Projectile, block);
+                //clone.GetComponent<Rigidbody>().velocity = block.TransformDirection(Vector3.right * 20);
                 //Projectile.transform.position = transform.position;
                 //Projectile.SetActive(true);
-                Destroy(clone, 3);
+                //Destroy(clone, 3);
+                StartCoroutine("ShootBullet");
             };
             time = 0;
         }
@@ -37,5 +39,13 @@ public class shootingUnit : Cards
         }
         shoot();
     }
+    private IEnumerator ShootBullet()
+    {
+        Bullet temp = bulletSpawner.GetOne();
+        temp.transform.position = transform.position;
+        yield return new WaitForSeconds(fireRate - 2f);
+        bulletSpawner.EndOne(temp);
+    }
+
 }
 

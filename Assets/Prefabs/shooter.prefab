@@ -118,3 +118,4 @@ MonoBehaviour:
   Projectile: {fileID: 6718271589655859352, guid: 2b020811ad7cc384092bfe63985312d9,
     type: 3}
   block: {fileID: 5156802016235153512}
+  bulletSpawner: {fileID: 0}
