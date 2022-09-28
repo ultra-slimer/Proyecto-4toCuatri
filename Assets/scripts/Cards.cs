@@ -17,7 +17,7 @@ public class Cards : MonoBehaviour, IDamageable<float>
 
     private void Awake()
     {
-        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
     virtual public void Shoot()
     {
@@ -38,6 +38,6 @@ public class Cards : MonoBehaviour, IDamageable<float>
 
     public void Death()
     {
-
+        GetComponentInParent<Grid>()?.CanInteract(true);
     }
 }
