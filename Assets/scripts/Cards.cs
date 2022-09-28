@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cards : MonoBehaviour
+public class Cards : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     float _Health;
@@ -24,10 +24,20 @@ public class Cards : MonoBehaviour
 
     }
 
+    
+
+    public void Damage(float damageTaken)
+    {
+        _Health -= damageTaken;
+
+        if (_Health <= 0)
+        {
+            Death();
+        }
+    }
+
     public void Death()
     {
 
     }
-
-
 }
