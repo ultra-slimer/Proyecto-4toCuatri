@@ -37,7 +37,7 @@ public class Control : MonoBehaviour
                 hit.collider.GetComponent<Tile>()?.CanInteract(false);
                 g.transform.SetParent(t);
 
-                Debug.Log("fun2");
+                //Debug.Log("fun2");
 
                 U.ActMoney(-D._numberOfCards[D.CardToUse]._Cost);
             }

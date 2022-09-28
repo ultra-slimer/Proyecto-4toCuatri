@@ -18,6 +18,14 @@ public class Cards : MonoBehaviour, IDamageable<float>
     private void Awake()
     {
         //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        
+    }
+
+    private void Start()
+    {
+        _Health = _MaxHealth;
+        Debug.Log(_Health);
+       
     }
     virtual public void Shoot()
     {
@@ -28,10 +36,12 @@ public class Cards : MonoBehaviour, IDamageable<float>
 
     public void Damage(float damageTaken)
     {
+        Debug.Log(_Health);
         _Health -= damageTaken;
-
+       
         if (_Health <= 0)
         {
+            
             Death();
         }
     }

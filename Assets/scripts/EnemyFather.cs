@@ -20,6 +20,9 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>
     bool _canWalk;
     int _layerMask;
 
+    /*[SerializeField]
+    Cards C;*/
+
     
 
     private void Awake()
@@ -59,11 +62,11 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>
             {
                 _time = 0;
 
-                GetComponent<Cards>().Damage(_damage);
+                //Cards pipo = Cards.Instance();
+                //GetComponent<Cards>().Damage(_damage);
+                //C.Damage(_damage);
 
-               
-
-                Debug.Log("vamo");
+                hit.collider.GetComponent<Cards>().Damage(_damage);
             }
         }
         else _canWalk = true;

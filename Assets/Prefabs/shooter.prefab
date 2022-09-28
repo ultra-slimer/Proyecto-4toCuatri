@@ -130,7 +130,7 @@ MonoBehaviour:
   _Health: 0
   _MaxHealth: 25
   _Damage: 0
-  _Cost: 0
+  _Cost: 100
   AssignedCard: {fileID: 21300000, guid: b34538a0c20f85c4b90669c1331c1874, type: 3}
   fireRate: 5
   block: {fileID: 5156802016235153512}
