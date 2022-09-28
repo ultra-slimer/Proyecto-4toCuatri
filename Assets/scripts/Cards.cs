@@ -38,6 +38,6 @@ public class Cards : MonoBehaviour, IDamageable<float>
 
     public void Death()
     {
-        GetComponentInParent<Grid>()?.CanInteract(true);
+        GetComponentInParent<Tile>()?.CanInteract(true);
     }
 }
