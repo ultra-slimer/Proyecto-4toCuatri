@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shootingUnit : Cards
+public class shootingUnit : Cards, IAttack
 {
     public float fireRate;
     public delegate void actions();
@@ -15,6 +15,17 @@ public class shootingUnit : Cards
     private void Awake()
     {
         time = 0;
+        if (!bulletSpawner)
+        {
+            try
+            {
+                bulletSpawner = FindObjectOfType<BulletSpawner>();
+            }
+            catch
+            {
+                Debug.LogError("Unable to find BulletSpawner for shooting unit, is it present in the hierarchy?");
+            }
+        }
     }
 
     private void Update()
@@ -29,7 +40,8 @@ public class shootingUnit : Cards
                 //Projectile.transform.position = transform.position;
                 //Projectile.SetActive(true);
                 //Destroy(clone, 3);
-                StartCoroutine("_ShootBullet");
+                //StartCoroutine("_ShootBullet");
+                Attack();
             };
             time = 0;
         }
@@ -43,9 +55,15 @@ public class shootingUnit : Cards
     {
         Bullet temp = bulletSpawner.GetOne();
         temp.transform.position = shootStartPoint.position;
+        temp.damage = damage;
+        print(damage);
         yield return new WaitForSeconds(fireRate * 1.5f);
         bulletSpawner.EndOne(temp);
     }
 
+    public void Attack()
+    {
+        StartCoroutine("_ShootBullet");
+    }
 }
 

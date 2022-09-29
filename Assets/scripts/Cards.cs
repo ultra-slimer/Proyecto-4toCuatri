@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cards : MonoBehaviour, IDamageable<float>
+public class Cards : MonoBehaviour, IDamageable<float>, IKillable
 {
     [SerializeField]
     float _Health;
     [SerializeField]
     float _MaxHealth;
     [SerializeField]
-    float _Damage;
+    public float damage;
     public int _Cost;   
     public Sprite AssignedCard;
 
@@ -34,7 +34,7 @@ public class Cards : MonoBehaviour, IDamageable<float>
 
     
 
-    public void Damage(float damageTaken)
+    public virtual void Damage(float damageTaken)
     {
         Debug.Log(_Health);
         _Health -= damageTaken;
@@ -49,5 +49,6 @@ public class Cards : MonoBehaviour, IDamageable<float>
     public void Death()
     {
         GetComponentInParent<Tile>()?.CanInteract(true);
+        Destroy(gameObject);
     }
 }

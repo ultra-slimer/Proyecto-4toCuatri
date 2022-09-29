@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public int speed;
     public BulletSpawner bulletSpawner;
     public LayerMask allowedCollisions;
+    public float damage;
     public static void EnableBullet(Bullet bullet)
     {
         bullet.gameObject.SetActive(true);
@@ -22,11 +23,23 @@ public class Bullet : MonoBehaviour
     {
         if ((allowedCollisions.value & 1<<collision.gameObject.layer) == 1 << collision.gameObject.layer)
         {
+            try
+            {
+                collision.gameObject.GetComponent<EnemyFather>().Damage(damage);
+            }
+            catch
+            {
+                Debug.LogError("No Enemy in the collider, maybe collider is in different object or wrong layer used");
+            }
             bulletSpawner.EndOne(this);
         }
     }
     public void SetBulletSpawner(BulletSpawner spawner, Bullet bullet)
     {
         bullet.bulletSpawner = spawner;
+    }
+    private void Awake()
+    {
+        Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Unit"));
     }
 }

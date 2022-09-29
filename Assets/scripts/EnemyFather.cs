@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>
+public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
 {
     [SerializeField]
     float _life;
@@ -66,13 +66,18 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>
                 //GetComponent<Cards>().Damage(_damage);
                 //C.Damage(_damage);
 
+                TestCubo temp = hit.collider.GetComponent<TestCubo>();
+                if (temp)
+                {
+                    temp.enemy = this;
+                }
                 hit.collider.GetComponent<Cards>().Damage(_damage);
             }
         }
         else _canWalk = true;
     }
 
-    public void Damage(float damageTaken)
+    public virtual void Damage(float damageTaken)
     {
         _life -= damageTaken;
 
@@ -80,8 +85,8 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>
             Death();
     }
 
-    public void Death()
+    public virtual void Death()
     {
-
+        Destroy(gameObject);
     }
 }
