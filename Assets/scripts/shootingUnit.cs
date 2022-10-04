@@ -57,8 +57,7 @@ public class shootingUnit : Cards, IAttack
         temp.transform.position = shootStartPoint.position;
         temp.damage = damage;
         print(damage);
-        yield return new WaitForSeconds(fireRate * 1.5f);
-        bulletSpawner.EndOne(temp);
+        yield return new WaitForSeconds(temp.maxTime);
     }
 
     public void Attack()

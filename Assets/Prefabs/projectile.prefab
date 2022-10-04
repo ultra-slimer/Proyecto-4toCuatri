@@ -200,6 +200,8 @@ MonoBehaviour:
   allowedCollisions:
     serializedVersion: 2
     m_Bits: 128
+  maxTime: 5
+  damage: 0
 --- !u!65 &5579072738357197432
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class ObjectPool<T>
     FactoryMethod _factoryMethod;
     Action<T> _turnOnCallback;
     Action<T> _turnOffCallback;
-    Vector3 defaultPos = Vector3.zero;
 
     public ObjectPool(FactoryMethod factory, Action<T> turnOn, Action<T> turnOff, int initialStock = 5)
     {
@@ -50,4 +49,5 @@ public class ObjectPool<T>
         _turnOffCallback(o);
         _currentStock.Add(o);
     }
+
 }

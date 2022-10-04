@@ -8,16 +8,35 @@ public class Bullet : MonoBehaviour
     public int speed;
     public BulletSpawner bulletSpawner;
     public LayerMask allowedCollisions;
+    public int maxTime;
     public float damage;
+    float _counter;
+
+
+    ObjectPool<Bullet> _referenceBack;
+    private void Update()
+    {
+        transform.position += transform.right * speed * Time.deltaTime;
+        _counter += Time.deltaTime;
+
+        if (_counter >= maxTime)
+        {
+            _referenceBack.ReturnObject(this);
+        }
+    }
     public static void EnableBullet(Bullet bullet)
     {
         bullet.gameObject.SetActive(true);
-        bullet.rb.velocity = bullet.transform.TransformDirection(Vector3.right * bullet.speed);
     }
     public static void DisableBullet(Bullet bullet)
     {
         bullet.gameObject.SetActive(false);
+        bullet.ResetBullet();
         bullet.rb.velocity = new Vector3(0, 0, 0);
+    }
+    public void ResetBullet()
+    {
+        _counter = 0;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,6 +56,10 @@ public class Bullet : MonoBehaviour
     public void SetBulletSpawner(BulletSpawner spawner, Bullet bullet)
     {
         bullet.bulletSpawner = spawner;
+    }
+    public void Create(ObjectPool<Bullet> op)
+    {
+        _referenceBack = op;
     }
     private void Awake()
     {
