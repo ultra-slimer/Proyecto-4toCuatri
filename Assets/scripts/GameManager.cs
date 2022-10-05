@@ -9,6 +9,16 @@ public class GameManager : MonoBehaviour
 
     static Dictionary<string, EventReceiver> _events = new Dictionary<string, EventReceiver>();
 
+    public static GameManager instance;
+
+    public EnemyFather Enemy;
+    public void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
+
+    }
     public static void Subscribe(string eventType, EventReceiver listener)
     {
         if (!_events.ContainsKey(eventType))

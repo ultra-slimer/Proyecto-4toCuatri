@@ -115,4 +115,9 @@ MonoBehaviour:
   _time: 0
   _damage: 5
   allWaypoints:
-  - {fileID: 273320733351247624, guid: 9be28d2ca3f4c65469fa01cfea1b293b, type: 3}
+  - {fileID: 8608117995056105619, guid: a526acbcea3b79346b586f1aedf60679, type: 3}
+  - {fileID: 5660354505536194575, guid: 83b0d0435221cbf4db52584e92f78f93, type: 3}
+  - {fileID: 8442471938429801166, guid: 3a4b464e0b48a6c4d901e5ea0179c23f, type: 3}
+  - {fileID: 3101907556880617069, guid: 9b86e7ca0f47eea4a984f31691b044bb, type: 3}
+  - {fileID: 1613182542390656533, guid: 3dc348cfc57439544b2223fcc7b1f4af, type: 3}
+  waypointTarget: 4

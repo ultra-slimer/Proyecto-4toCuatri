@@ -16,6 +16,7 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
     float _damage;
 
     public Transform[] allWaypoints;
+    public int waypointTarget;
 
     bool _canWalk;
     int _layerMask;
@@ -30,13 +31,21 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
         _time = 0;
         _canWalk = true;
         _layerMask = LayerMask.GetMask("Unit");
+
+       
+    }
+
+    public void Start()
+    {
+     
+        
     }
 
     void Update()
     {
         if(_canWalk)
         {
-            Transform nextWaypoint = allWaypoints[0];
+            Transform nextWaypoint = allWaypoints[waypointTarget];
             Vector3 dir = nextWaypoint.position - transform.position;
             dir.y = 0;
             transform.forward = dir;
