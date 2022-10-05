@@ -9,7 +9,7 @@ using System.IO;
 [Serializable]
 public class Save
 {
-    public int coins;
+    public int gems;
     public int level;
     public string user;
 
@@ -43,7 +43,12 @@ public class Save
         JsonUtility.FromJsonOverwrite(newJason, this);
     }
 }
-public interface ISaveable {
+public interface ISaveable<T>{
     void PopulateSaveData(Save a_Save);
+    void SaveFile(T save);
+}
+public interface ILoadable<T>
+{
+    void LoadFile(T save);
     void LoadFromSaveData(Save a_Save);
 }

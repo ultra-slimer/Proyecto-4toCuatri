@@ -19,8 +19,9 @@ public class Bullet : MonoBehaviour
         transform.position += transform.right * speed * Time.deltaTime;
         _counter += Time.deltaTime;
 
-        if (_counter >= maxTime)
+        if (_counter >= maxTime && gameObject.activeSelf)
         {
+            print("se devuelve bala por tiempo");
             _referenceBack.ReturnObject(this);
         }
     }
@@ -50,7 +51,10 @@ public class Bullet : MonoBehaviour
             {
                 Debug.LogError("No Enemy in the collider, maybe collider is in different object or wrong layer used");
             }
-            bulletSpawner.EndOne(this);
+            //bulletSpawner.EndOne(this);
+            print("se devuelve bala por colision");
+            print(_referenceBack);
+            _referenceBack.ReturnObject(this);
         }
     }
     public void SetBulletSpawner(BulletSpawner spawner, Bullet bullet)

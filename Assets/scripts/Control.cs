@@ -19,7 +19,6 @@ public class Control : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
             GameManager.Trigger("SpawnUnit");
-        
     }
 
     public void Touch()

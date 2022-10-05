@@ -6,17 +6,22 @@ using System.IO;
 
 //Basado en codigo mostrado en https://www.youtube.com/watch?v=uD7y4T4PVk0
 [Serializable]
-public class SaveTesting : MonoBehaviour, ISaveable
+public class SaveTesting : MonoBehaviour, ISaveable<SaveTesting>, ILoadable<SaveTesting>
 {
+    public static int _Level;
+    public static int _Gems;
+    public static string _UserName;
     public int Level;
-    public int Coins;
-    public string UserName;
-    private static string _fileName = string.Empty;
+    public int Gems;
+    public  string UserName;
+    public static string _fileName = string.Empty;
     public string fileName;
     private static string _fullPath;
 
     private void Start()
     {
+        GameManager.Subscribe("UpdateSaveValues", UpdateSaveValues);
+        GameManager.Subscribe("UpdateEditorValues", UpdateEditorValues);
         _fileName = fileName;
         if (_fileName == string.Empty)
         {
@@ -28,30 +33,31 @@ public class SaveTesting : MonoBehaviour, ISaveable
     }
     public void LoadFromSaveData(Save a_Save)
     {
-        Coins = a_Save.coins;
-        Level = a_Save.level;
-        UserName = a_Save.user;
+        _Gems = a_Save.gems;
+        _Level = a_Save.level;
+        _UserName = a_Save.user;
+        GameManager.Trigger("UpdateEditorValues");
     }
 
     public void PopulateSaveData(Save a_Save)
     {
-        a_Save.coins = Coins;
-        a_Save.level = Level;
-        a_Save.user = UserName;
+        a_Save.gems = _Gems;
+        a_Save.level = _Level;
+        a_Save.user = _UserName;
     }
 
-    public static void SaveFile(SaveTesting testing)
+    public void SaveFile(SaveTesting testing)
     {
         Save sf = new Save();
         testing.PopulateSaveData(sf);
         
         if(FileManager.WriteToFile(_fileName + ".dat", sf.SaveData()))
         {
-            print("Save Successful" + sf.user + sf.coins + sf.level);
+            print("Save Successful" + sf.user + sf.gems + sf.level);
         }
     }
 
-    public static void LoadFile(SaveTesting testing)
+    public void LoadFile(SaveTesting testing)
     {
         if (FileManager.LoadFromFile(_fileName + ".dat", out var json))
         {
@@ -59,7 +65,7 @@ public class SaveTesting : MonoBehaviour, ISaveable
             sf.LoadData(json);
 
             testing.LoadFromSaveData(sf);
-            print("Load Successful: " + testing.UserName + testing.Coins + testing.Level);
+            print("Load Successful: " + SaveTesting._UserName + SaveTesting._Gems + SaveTesting._Level);
         }
     }
 
@@ -75,5 +81,22 @@ public class SaveTesting : MonoBehaviour, ISaveable
             _fileName = fileName;
             LoadFile(this);
         }
+    }
+    private void OnValidate()
+    {
+        GameManager.Trigger("UpdateSaveValues");
+    }
+
+    private void UpdateSaveValues()
+    {
+        _Gems = Gems;
+        _Level = Level;
+        _UserName = UserName;
+    }
+    private void UpdateEditorValues()
+    {
+        Gems = _Gems;
+        Level = _Level;
+        UserName = _UserName;
     }
 }

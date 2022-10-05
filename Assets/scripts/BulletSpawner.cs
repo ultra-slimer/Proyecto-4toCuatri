@@ -12,7 +12,7 @@ public class BulletSpawner : MonoBehaviour
     void Start()
     {
         _factory = new Factory<Bullet>(bullet);
-        _pool = new ObjectPool<Bullet>(_factory.Get, Bullet.EnableBullet, Bullet.DisableBullet, 20);
+        _pool = new ObjectPool<Bullet>(_factory.Get, Bullet.EnableBullet, Bullet.DisableBullet, 10);
     }
 
     void Update()
@@ -32,6 +32,7 @@ public class BulletSpawner : MonoBehaviour
         if (!bullet.bulletSpawner)
         {
             bullet.SetBulletSpawner(this, bullet);
+            bullet.Create(_pool);
         }
         return bullet;
     }
