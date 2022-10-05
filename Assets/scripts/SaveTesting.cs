@@ -6,7 +6,7 @@ using System.IO;
 
 //Basado en codigo mostrado en https://www.youtube.com/watch?v=uD7y4T4PVk0
 [Serializable]
-public class SaveTesting : MonoBehaviour, ISaveable<SaveTesting>, ILoadable<SaveTesting>
+public class SaveTesting : ISaveable<SaveTesting>, ILoadable<SaveTesting>
 {
     public static int _Level;
     public static int _Gems;
@@ -28,7 +28,7 @@ public class SaveTesting : MonoBehaviour, ISaveable<SaveTesting>, ILoadable<Save
             _fileName = "SaveDAT";
         }
         _fullPath = Path.Combine(Application.dataPath + @"\Save", _fileName + ".dat");
-        print(_fullPath);
+        //print(_fullPath);
         LoadFile(this);
     }
     public void LoadFromSaveData(Save a_Save)
@@ -53,7 +53,7 @@ public class SaveTesting : MonoBehaviour, ISaveable<SaveTesting>, ILoadable<Save
         
         if(FileManager.WriteToFile(_fileName + ".dat", sf.SaveData()))
         {
-            print("Save Successful" + sf.user + sf.gems + sf.level);
+            //print("Save Successful" + sf.user + sf.gems + sf.level);
         }
     }
 
@@ -65,7 +65,7 @@ public class SaveTesting : MonoBehaviour, ISaveable<SaveTesting>, ILoadable<Save
             sf.LoadData(json);
 
             testing.LoadFromSaveData(sf);
-            print("Load Successful: " + SaveTesting._UserName + SaveTesting._Gems + SaveTesting._Level);
+            //print("Load Successful: " + SaveTesting._UserName + SaveTesting._Gems + SaveTesting._Level);
         }
     }
 
