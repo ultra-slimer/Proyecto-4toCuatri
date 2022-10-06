@@ -24,12 +24,14 @@ public class TestSpawn : MonoBehaviour
 
     IEnumerator Start()
     {
-        while(canSpawn)
+        while (canSpawn)
         {
             //apenas inicia el juego
             yield return new WaitForSeconds(_frequencyEnemies);
 
             _randomSpawn = Random.Range(0, 5);
+            print("spawneo en pos " + _randomSpawn);
+            print("Enemy " + GameManager.instance.Enemy);
             GameManager.instance.Enemy.waypointTarget = _randomSpawn;
             
             GameObject _insEnemy = Instantiate(_enemy, spawnPoints[_randomSpawn].transform.position, Quaternion.Euler(0,0,0)) as GameObject;

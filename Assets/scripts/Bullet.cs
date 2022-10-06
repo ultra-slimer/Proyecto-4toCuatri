@@ -2,42 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : Spawnables<Bullet, BulletSpawner>
 {
     public Rigidbody rb;
     public int speed;
-    public BulletSpawner bulletSpawner;
     public LayerMask allowedCollisions;
-    public int maxTime;
     public float damage;
-    float _counter;
 
 
     ObjectPool<Bullet> _referenceBack;
-    private void Update()
+    private void OnDisable()
+    {
+        thing = this;
+    }
+    private void Start()
+    {
+        thing = this;
+    }
+    public override void Update()
     {
         transform.position += transform.right * speed * Time.deltaTime;
         _counter += Time.deltaTime;
-
-        if (_counter >= maxTime && gameObject.activeSelf)
-        {
-            print("se devuelve bala por tiempo");
-            _referenceBack.ReturnObject(this);
-        }
-    }
-    public static void EnableBullet(Bullet bullet)
-    {
-        bullet.gameObject.SetActive(true);
-    }
-    public static void DisableBullet(Bullet bullet)
-    {
-        bullet.gameObject.SetActive(false);
-        bullet.ResetBullet();
-        bullet.rb.velocity = new Vector3(0, 0, 0);
-    }
-    public void ResetBullet()
-    {
-        _counter = 0;
+        base.Update();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -59,11 +45,7 @@ public class Bullet : MonoBehaviour
     }
     public void SetBulletSpawner(BulletSpawner spawner, Bullet bullet)
     {
-        bullet.bulletSpawner = spawner;
-    }
-    public void Create(ObjectPool<Bullet> op)
-    {
-        _referenceBack = op;
+        bullet.spawner = spawner;
     }
     private void Awake()
     {

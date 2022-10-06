@@ -16,6 +16,8 @@ public class BulletFactory : MonoBehaviour
     {
         //Dependiendo el enum instancio una bala u otra.
         //Puedo tener un array de Bullet y ahi cargar los diferentes tipos de balas.
-        return Instantiate(prefab);
+        Bullet b = Instantiate(prefab);
+        b.thing = b;
+        return b;
     }
 }
