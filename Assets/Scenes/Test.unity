@@ -1510,7 +1510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1691480621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,6 +1523,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbdc59d712931b428394d8d4712bada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _counter: 0
+  maxTime: 0
+  spawner: {fileID: 0}
+  thing: {fileID: 0}
 --- !u!4 &1691480622
 Transform:
   m_ObjectHideFlags: 0
@@ -1701,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c1afe7837d7e14e81dceb4b1143c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 5054376744420115410, guid: f315f9d6925d5f940bc360df093ba9d2, type: 3}
+  Enemy: {fileID: 0}
 --- !u!4 &2111285626
 Transform:
   m_ObjectHideFlags: 0
