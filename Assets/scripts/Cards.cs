@@ -48,6 +48,14 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable
 
     public void Death()
     {
+        StartCoroutine(ReEnableCooldown());
+    }
+
+    private IEnumerator ReEnableCooldown()
+    {
+        Destroy(gameObject.GetComponent<MeshRenderer>());
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        yield return new WaitForSeconds(3);
         GetComponentInParent<Tile>()?.CanInteractToggle();
         Destroy(gameObject);
     }

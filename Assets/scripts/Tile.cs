@@ -10,8 +10,7 @@ public class Tile : MonoBehaviour, ITouchable
         Control control = FindObjectOfType<Control>();
         if (t.childCount == 0 && control.U._money >= control.D._numberOfCards[control.D.CardToUse]._Cost)
         {
-            GameObject g = Instantiate(control.D._numberOfCards[control.D.CardToUse].gameObject, t) as GameObject;
-            g.transform.rotation = Quaternion.Euler(0, 90, 0);
+            GameObject g = Instantiate(control.D._numberOfCards[control.D.CardToUse].gameObject, t.position, Quaternion.Euler(0, 90, 0)) as GameObject;
             CanInteractToggle();
             g.transform.SetParent(t);
 
