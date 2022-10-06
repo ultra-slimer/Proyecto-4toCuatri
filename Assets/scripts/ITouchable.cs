@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ITouchable
 {
-    public abstract void Touched();
+    public abstract void Touched(RaycastHit hit);
 }

@@ -18,7 +18,7 @@ public class Gems : Spawnables<Gems, GemSpawner>, ITouchable
         _Gems += amountAdded;
     }
     
-    public void Touched()
+    public void Touched(RaycastHit hit)
     {
         AddGems();
         _referenceBack.ReturnObject(this);

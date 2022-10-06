@@ -10,8 +10,8 @@ public class Control : MonoBehaviour
         "Gems"
     };
     //RaycastHit hit;
-    [SerializeField] Deck D;
-    [SerializeField] UpdateMoney U;
+    [SerializeField] public Deck D;
+    [SerializeField] public UpdateMoney U;
     
     int _layerMask;
     public void Start()
@@ -31,7 +31,7 @@ public class Control : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000f, _layerMask))
         {
-            TouchActions(hit);
+            hit.transform.GetComponent<ITouchable>().Touched(hit);
             /*if (t.childCount == 0 && U._money >= D._numberOfCards[D.CardToUse]._Cost)
             {
                 GameObject g = Instantiate(D._numberOfCards[D.CardToUse].gameObject, t.position, gameObject.transform.rotation = Quaternion.Euler(0, 90, 0)) as GameObject;
@@ -43,34 +43,6 @@ public class Control : MonoBehaviour
                 U.ActMoney(-D._numberOfCards[D.CardToUse]._Cost);
             }
             else return;*/
-        }
-    }
-
-    private void TouchActions(RaycastHit hit)
-    {
-        string layerHitName = LayerMask.LayerToName(hit.collider.gameObject.layer);
-        switch (layerHitName)
-        {
-            case "Cuadricula":
-                Transform t = hit.collider.transform;
-                if (t.childCount == 0 && U._money >= D._numberOfCards[D.CardToUse]._Cost)
-                {
-                    GameObject g = Instantiate(D._numberOfCards[D.CardToUse].gameObject, t.position, gameObject.transform.rotation = Quaternion.Euler(0, 90, 0)) as GameObject;
-                    hit.collider.GetComponent<ITouchable>()?.Touched();
-                    g.transform.SetParent(t);
-
-                    //Debug.Log("fun2");
-
-                    U.ActMoney(-D._numberOfCards[D.CardToUse]._Cost);
-                }
-                else return;
-                break;
-            case "Gems":
-                hit.collider.GetComponent<ITouchable>()?.Touched();
-                break;
-            default:
-                Debug.LogError($"No layer was found that matched with touchActions, layer obtained was {layerHitName}");
-                break;
         }
     }
 }
