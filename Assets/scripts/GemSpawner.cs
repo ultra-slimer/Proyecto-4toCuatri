@@ -5,18 +5,22 @@ using UnityEngine;
 public class GemSpawner : MonoBehaviour, ISpawner<Gems>
 {
     public Gems gems;
-    ObjectPool<Gems> _pool;
+    static ObjectPool<Gems> _pool;
+    static Factory<Gems> _factory;
+    public static GemSpawner gemSpawner;
 
     void Start()
     {
-        _pool = new ObjectPool<Gems>(Factory, Gems.Enable, Gems.Disable, 3);
+        gemSpawner = this;
+        _factory = new Factory<Gems>(gems);
+        _pool = new ObjectPool<Gems>(_factory.Get, Gems.Enable, Gems.Disable, 3);
     }
-    public Gems Factory()
+    /*public Gems Factory()
     {
         Gems temp = Instantiate(gems);
-        temp.thing = temp;
+        temp.ISpawnable<Gems>. = temp;
         return temp;
-    }
+    }*/
     void Update()
     {
 
@@ -25,11 +29,7 @@ public class GemSpawner : MonoBehaviour, ISpawner<Gems>
     public Gems GetOne()
     {
         gems = _pool.GetObject();
-        if (!gems.spawner)
-        {
-            gems.SetSpawner(this, gems);
-            gems.Create(_pool);
-        }
+        gems.Create(_pool);
         return gems;
     }
 

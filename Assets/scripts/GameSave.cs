@@ -9,18 +9,18 @@ using System.IO;
 public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
 {
     public static int _Level;
-    public int Gems { get => global::Gems._Gems; set => global::Gems._Gems = value; }
+    public int gems { get => Gems._Gems; set => Gems._Gems = value; }
     public static string _UserName;
     public int Level;
     public  string UserName;
     public static string _fileName = "SaveDAT";
-    public string fileName;
+    public string fileName = "SaveDAT";
     private static string _fullPath;
-    private static GameSave _saveTesting;
+    private static GameSave _gameSave;
 
     private void Start()
     {
-        _saveTesting = this;
+        _gameSave = this;
         GameManager.Subscribe("UpdateWithSaveValues", UpdateWithSaveValues);
         GameManager.Subscribe("UpdateEditorValues", UpdateEditorValues);
         GameManager.Subscribe("SaveRemotely", RemoteSave);
@@ -28,21 +28,21 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         _fullPath = Path.Combine(Application.dataPath + @"\Save", _fileName + ".dat");
         //print(_fullPath);
         LoadFile(this);
-        GameManager.Trigger("UpdateWithSaveValues");
+        UpdateWithSaveValues();
     }
     public void LoadFromSaveData(Save a_Save)
     {
-        Gems = a_Save.gems;
+        gems = a_Save.gems;
         /*print(Gems);
         print(a_Save.gems);*/
         _Level = a_Save.level;
         _UserName = a_Save.user;
-        GameManager.Trigger("UpdateEditorValues");
+        UpdateEditorValues();
     }
 
     public void PopulateSaveData(Save a_Save)
     {
-        a_Save.gems = Gems;
+        a_Save.gems = gems;
         a_Save.level = _Level;
         a_Save.user = _UserName;
     }
@@ -66,7 +66,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             sf.LoadData(json);
 
             testing.LoadFromSaveData(sf);
-            print("Load Successful: " + GameSave._UserName + testing.Gems + GameSave._Level);
+            print("Load Successful: " + GameSave._UserName + testing.gems + GameSave._Level);
         }
     }
 
@@ -74,14 +74,27 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     {
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
-            _fileName = fileName;
-            SaveFile(this);
+            SaveAllData(this);
         }
         if (Input.GetKeyDown(KeyCode.KeypadMultiply))
         {
-            _fileName = fileName;
+            FileName();
             LoadFile(this);
         }
+        if (Input.GetKeyDown(KeyCode.KeypadDivide))
+        {
+            Gems.SaveOnlyGems();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            Gems.AddGems(5);
+        }
+    }
+    public static void SaveAllData(GameSave gameSave)
+    {
+        gameSave.FileName();
+        gameSave.UpdateWithSaveValues();
+        gameSave.SaveFile(gameSave);
     }
     private void OnValidate()
     {
@@ -92,7 +105,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     {
         _Level = Level;
         _UserName = UserName;
-        _fileName = fileName;
+        FileName();
     }
     private void UpdateEditorValues()
     {
@@ -107,11 +120,9 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             _fileName = "SaveDAT";
         }
     }
-    public void LoadStart()
-    {
-    }
     private static void RemoteSave()
     {
-        _saveTesting.SaveFile(_saveTesting);
+        GameSave._gameSave.FileName();
+        _gameSave.SaveFile(_gameSave);
     }
 }

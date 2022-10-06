@@ -23,7 +23,7 @@ public class shootingUnit : Cards, IAttack
             }
             catch
             {
-                Debug.LogError("Unable to find BulletSpawner for shooting unit, is it present in the hierarchy?");
+                Debug.LogError("Unable to find BulletSpawner for shooting unit, is it present in the Scene?");
             }
         }
     }

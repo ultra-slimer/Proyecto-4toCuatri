@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
 {
+    public string[] attackableLayers = { "Unit" };
     [SerializeField]
     float _life;
     [SerializeField]
@@ -18,6 +19,8 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
     public Transform[] allWaypoints;
     public int waypointTarget;
 
+    private EnemyFather _self;
+
     bool _canWalk;
     int _layerMask;
 
@@ -30,8 +33,8 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
     {
         _time = 0;
         _canWalk = true;
-        _layerMask = LayerMask.GetMask("Unit");
-
+        _layerMask = LayerMask.GetMask(attackableLayers);
+        _self = this;
        
     }
 
@@ -75,12 +78,12 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
                 //GetComponent<Cards>().Damage(_damage);
                 //C.Damage(_damage);
 
-                TestCubo temp = hit.collider.GetComponent<TestCubo>();
-                if (temp)
+                IAttackBack temp = hit.collider.GetComponent<IAttackBack>();
+                if (temp != null)
                 {
-                    temp.enemy = this;
+                    temp.AttackAgressor(_damage, this);
                 }
-                hit.collider.GetComponent<Cards>().Damage(_damage);
+                hit.collider.GetComponent<IDamageable<float>>().Damage(_damage);
             }
         }
         else _canWalk = true;
@@ -90,12 +93,16 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
     {
         _life -= damageTaken;
 
-        if(_life <= 0) 
-            Death();
+        if (_life <= 0)
+        {
+            //print(_self);
+            _self.Death();
+        }
     }
 
     public virtual void Death()
     {
+        GemSpawner.gemSpawner.GetOne().transform.position = transform.position;
         Destroy(gameObject);
     }
 }

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//This script is never used, but I spent so much time that I don't feel like deleting it, so fuck it, useless code gang
 public abstract class UnificationSpawnerSpawnable<T, U> : MonoBehaviour where T : Spawnables<T, U>
 {
 
 }
 [SerializeField]
 public class Spawner<T> : MonoBehaviour where T : Spawnables<T, Spawner<T>>
-{
+{/*
     public T thing;
     ObjectPool<T> _pool;
 
@@ -41,5 +41,5 @@ public class Spawner<T> : MonoBehaviour where T : Spawnables<T, Spawner<T>>
     public void EndOne(T obj)
     {
         _pool.ReturnObject(obj);
-    }
+    }*/
 }

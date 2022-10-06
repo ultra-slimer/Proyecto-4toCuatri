@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This script is here in case i need to remember how to do this shit
 public class BulletFactory : MonoBehaviour
 {
     public Bullet prefab;
@@ -17,7 +17,7 @@ public class BulletFactory : MonoBehaviour
         //Dependiendo el enum instancio una bala u otra.
         //Puedo tener un array de Bullet y ahi cargar los diferentes tipos de balas.
         Bullet b = Instantiate(prefab);
-        b.thing = b;
+        //b.ISpawnable = b;
         return b;
     }
 }

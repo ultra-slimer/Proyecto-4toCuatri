@@ -9,31 +9,19 @@ public class Gems : Spawnables<Gems, GemSpawner>
     public static int _Gems;
 
 
-    ObjectPool<Gems> _referenceBack;
-    private void Start()
-    {
-        thing = this;
-    }
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadDivide))
-        {
-            SaveOnlyGems();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            AddGems(5);
-        }
         base.Update();
     }
-    public void AddGems(int amountAdded)
+    public static void AddGems(int amountAdded = 5)
     {
         _Gems += amountAdded;
-        GameManager.Trigger("UpdateSaveWithModifiedValues");
+        Gems.SaveOnlyGems();
     }
     
-    public void SaveOnlyGems()
+    public static void SaveOnlyGems()
     {
         GameManager.Trigger("SaveRemotely");
     }
+
 }

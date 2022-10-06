@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System;
 
 public class Bullet : Spawnables<Bullet, BulletSpawner>
 {
@@ -10,15 +12,6 @@ public class Bullet : Spawnables<Bullet, BulletSpawner>
     public float damage;
 
 
-    ObjectPool<Bullet> _referenceBack;
-    private void OnDisable()
-    {
-        thing = this;
-    }
-    private void Start()
-    {
-        thing = this;
-    }
     public override void Update()
     {
         transform.position += transform.right * speed * Time.deltaTime;
@@ -31,21 +24,19 @@ public class Bullet : Spawnables<Bullet, BulletSpawner>
         {
             try
             {
-                collision.gameObject.GetComponent<EnemyFather>().Damage(damage);
+                var temp = collision.gameObject.GetComponent<EnemyFather>();
+                temp.Damage(damage);
             }
-            catch
+            catch (Exception e)
             {
-                Debug.LogError("No Enemy in the collider, maybe collider is in different object or wrong layer used");
+                //Debug.LogError($"No Enemy in the collider, maybe collider is in different object or wrong layer used, Collided With {collision.gameObject.name}");
+                Debug.LogError(e);
             }
             //bulletSpawner.EndOne(this);
             print("se devuelve bala por colision");
             print(_referenceBack);
             _referenceBack.ReturnObject(this);
         }
-    }
-    public void SetBulletSpawner(BulletSpawner spawner, Bullet bullet)
-    {
-        bullet.spawner = spawner;
     }
     private void Awake()
     {

@@ -29,11 +29,7 @@ public class BulletSpawner : MonoBehaviour, ISpawner<Bullet>
     public Bullet GetOne()
     {
         bullet = _pool.GetObject();
-        if (!bullet.spawner)
-        {
-            bullet.SetBulletSpawner(this, bullet);
-            bullet.Create(_pool);
-        }
+        bullet.Create(_pool);
         return bullet;
     }
 

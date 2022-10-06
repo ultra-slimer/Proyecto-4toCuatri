@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
-public class Spawnables<T, U> : MonoBehaviour
+public class Spawnables<T, U> : MonoBehaviour, ISpawnable<T>
 {
     public float _counter;
     public int maxTime;
-    public U spawner;
     public T thing;
-    ObjectPool<T> _referenceBack;
+    protected ObjectPool<T> _referenceBack;
+
 
 
     // Update is called once per frame
@@ -23,10 +23,10 @@ public class Spawnables<T, U> : MonoBehaviour
         }
 
     }
-    public void SetSpawner(U spawner, Spawnables<T, U> obj)
+    /*public void SetSpawner(U spawner, Spawnables<T, U> obj)
     {
         obj.spawner = spawner;
-    }
+    }*/
     public void Create(ObjectPool<T> op)
     {
         _referenceBack = op;
@@ -44,5 +44,14 @@ public class Spawnables<T, U> : MonoBehaviour
         obj.gameObject.SetActive(false);
         obj.ResetCounter();
     }
+
+    public void SaveThing(T newThing)
+    {
+        thing = newThing;
+    }
+}
+
+public interface ISpawnable<T> {
+    public void SaveThing(T newThing);
 }
 

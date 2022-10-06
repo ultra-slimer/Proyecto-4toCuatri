@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestCubo : Cards
+public class SpikedFence : Cards, IAttackBack
 {
     public LayerMask layerMask;
-    public EnemyFather enemy;
+
+    public void AttackAgressor(float damage, IDamageable<float> agressor)
+    {
+        agressor.Damage(damage);
+    }
+
     public override void Damage(float damageTaken)
     {
-        enemy.Damage(damage);
         base.Damage(damageTaken);
     }
 }
