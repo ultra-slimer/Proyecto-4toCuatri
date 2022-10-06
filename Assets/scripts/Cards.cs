@@ -48,7 +48,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable
 
     public void Death()
     {
-        GetComponentInParent<Tile>()?.CanInteract(true);
+        GetComponentInParent<ITouchable>()?.Touched();
         Destroy(gameObject);
     }
 }

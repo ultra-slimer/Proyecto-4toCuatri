@@ -56,7 +56,7 @@ public class Control : MonoBehaviour
                 if (t.childCount == 0 && U._money >= D._numberOfCards[D.CardToUse]._Cost)
                 {
                     GameObject g = Instantiate(D._numberOfCards[D.CardToUse].gameObject, t.position, gameObject.transform.rotation = Quaternion.Euler(0, 90, 0)) as GameObject;
-                    hit.collider.GetComponent<Tile>()?.CanInteract(false);
+                    hit.collider.GetComponent<ITouchable>()?.Touched();
                     g.transform.SetParent(t);
 
                     //Debug.Log("fun2");
@@ -66,8 +66,7 @@ public class Control : MonoBehaviour
                 else return;
                 break;
             case "Gems":
-                Gems.AddGems();
-                GemSpawner.gemSpawner.EndOne(hit.transform.GetComponent<Gems>());
+                hit.collider.GetComponent<ITouchable>()?.Touched();
                 break;
             default:
                 Debug.LogError($"No layer was found that matched with touchActions, layer obtained was {layerHitName}");

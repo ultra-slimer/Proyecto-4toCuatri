@@ -81,14 +81,6 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             FileName();
             LoadFile(this);
         }
-        if (Input.GetKeyDown(KeyCode.KeypadDivide))
-        {
-            Gems.SaveOnlyGems();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            Gems.AddGems(5);
-        }
     }
     public static void SaveAllData(GameSave gameSave)
     {

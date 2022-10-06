@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using System.IO;
 
-public class Gems : Spawnables<Gems, GemSpawner>
+public class Gems : Spawnables<Gems, GemSpawner>, ITouchable
 {
     public static int _Gems;
 
@@ -13,14 +13,15 @@ public class Gems : Spawnables<Gems, GemSpawner>
     {
         base.Update();
     }
-    public static void AddGems(int amountAdded = 5)
+    public void AddGems(int amountAdded = 5)
     {
         _Gems += amountAdded;
-        Gems.SaveOnlyGems();
     }
     
-    public static void SaveOnlyGems()
+    public void Touched()
     {
+        AddGems();
+        _referenceBack.ReturnObject(this);
         GameManager.Trigger("SaveRemotely");
     }
 
