@@ -6,21 +6,15 @@ using System.IO;
 
 public class Gems : Spawnables<Gems, GemSpawner>, ITouchable
 {
-    public static int _Gems;
-
-
+    public int value = 5;
     public override void Update()
     {
         base.Update();
     }
-    public void AddGems(int amountAdded = 5)
-    {
-        _Gems += amountAdded;
-    }
     
     public void Touched(RaycastHit hit)
     {
-        AddGems();
+        GemManager.AddGems(value);
         _referenceBack.ReturnObject(this);
         GameManager.Trigger("SaveRemotely");
     }

@@ -467,6 +467,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f315f9d6925d5f940bc360df093ba9d2, type: 3}
+--- !u!1 &418533040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418533042}
+  - component: {fileID: 418533041}
+  m_Layer: 0
+  m_Name: GemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &418533041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418533040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1b36826d1e28443adcf076d05c8681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gems: {fileID: 916421519424270743, guid: e5060b2d10e68834c869e41b1e4bdb2a, type: 3}
+--- !u!4 &418533042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418533040}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.575592, y: -4.6302676, z: 8.229818}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &452402371
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,11 +1043,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5054376744420115410, guid: f315f9d6925d5f940bc360df093ba9d2,
         type: 3}
-      propertyPath: C
-      value: 
-      objectReference: {fileID: 952089874}
-    - target: {fileID: 5054376744420115410, guid: f315f9d6925d5f940bc360df093ba9d2,
-        type: 3}
       propertyPath: allWaypoints.Array.data[0]
       value: 
       objectReference: {fileID: 179453291}
@@ -1011,11 +1050,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmartEnemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5054376744420115411, guid: f315f9d6925d5f940bc360df093ba9d2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5054376744420115414, guid: f315f9d6925d5f940bc360df093ba9d2,
         type: 3}
@@ -1382,6 +1416,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequencyEnemies: 5
   _enemy: {fileID: 5054376744420115411, guid: f315f9d6925d5f940bc360df093ba9d2, type: 3}
+  smartEnemy: {fileID: 5054376744420115410, guid: f315f9d6925d5f940bc360df093ba9d2,
+    type: 3}
   canSpawn: 1
   spawnPoints:
   - {fileID: 2074256281}

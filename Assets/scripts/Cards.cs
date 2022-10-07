@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cards : MonoBehaviour, IDamageable<float>, IKillable
+public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
 {
     [SerializeField]
     float _Health;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
-public class Spawnables<T, U> : MonoBehaviour, ISpawnable<T>
+public class Spawnables<T, U> : MonoBehaviour, ISpawnable<T> where T : ISpawnable<T>
 {
-    public float _counter;
+    private float _counter;
     public int maxTime;
     public T thing;
     protected ObjectPool<T> _referenceBack;

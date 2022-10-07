@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
+public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather>>, IAttack, IDamageable<float>, IKillable, IObstacle
 {
-    public string[] attackableLayers = { "Unit" };
+    public string[] ReactingLayers = { "Unit", "Enemy" };
     [SerializeField]
     float _life;
     [SerializeField]
@@ -33,7 +33,7 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
     {
         _time = 0;
         _canWalk = true;
-        _layerMask = LayerMask.GetMask(attackableLayers);
+        _layerMask = LayerMask.GetMask(ReactingLayers);
         _self = this;
        
     }
@@ -44,7 +44,7 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
         
     }
 
-    void Update()
+    public override void Update()
     {
         if(_canWalk)
         {
@@ -69,8 +69,11 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
         {
             
            _time += Time.deltaTime;
-            _canWalk = false;
-            if (_attackSpeed <= _time)
+            if(hit.transform.GetComponent<IObstacle>() != null)
+            {
+                _canWalk = false;
+            }
+            if (_attackSpeed <= _time && hit.transform.GetComponent<IDamageable<float>>() != null && hit.transform.GetComponent<EnemyFather>() == null)
             {
                 _time = 0;
 
@@ -78,11 +81,7 @@ public class EnemyFather : MonoBehaviour, IAttack, IDamageable<float>, IKillable
                 //GetComponent<Cards>().Damage(_damage);
                 //C.Damage(_damage);
 
-                IAttackBack temp = hit.collider.GetComponent<IAttackBack>();
-                if (temp != null)
-                {
-                    temp.AttackAgressor(_damage, this);
-                }
+                hit.collider.GetComponent<IAttackBack>()?.AttackAgressor(_damage, this);
                 hit.collider.GetComponent<IDamageable<float>>().Damage(_damage);
             }
         }

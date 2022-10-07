@@ -17,14 +17,7 @@ public class shootingUnit : Cards, IAttack
         time = 0;
         if (!bulletSpawner)
         {
-            try
-            {
-                bulletSpawner = FindObjectOfType<BulletSpawner>();
-            }
-            catch
-            {
-                Debug.LogError("Unable to find BulletSpawner for shooting unit, is it present in the Scene?");
-            }
+            bulletSpawner = FindObjectOfType<BulletSpawner>();
         }
     }
 

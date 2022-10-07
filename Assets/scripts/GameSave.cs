@@ -9,7 +9,7 @@ using System.IO;
 public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
 {
     public static int _Level;
-    public int gems { get => Gems._Gems; set => Gems._Gems = value; }
+    public int gems { get => GemManager._Gems; set => GemManager._Gems = value; }
     public static string _UserName;
     public int Level;
     public  string UserName;

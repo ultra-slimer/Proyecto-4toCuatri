@@ -46,10 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbdc59d712931b428394d8d4712bada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _counter: 0
   maxTime: 6
-  spawner: {fileID: 0}
   thing: {fileID: 0}
+  value: 10
 --- !u!33 &7899540883532239172
 MeshFilter:
   m_ObjectHideFlags: 0

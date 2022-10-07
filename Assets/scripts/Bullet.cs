@@ -15,22 +15,16 @@ public class Bullet : Spawnables<Bullet, BulletSpawner>
     public override void Update()
     {
         transform.position += transform.right * speed * Time.deltaTime;
-        _counter += Time.deltaTime;
         base.Update();
     }
     private void OnCollisionEnter(Collision collision)
     {
         if ((allowedCollisions.value & 1<<collision.gameObject.layer) == 1 << collision.gameObject.layer)
         {
-            try
+            var temp = collision.gameObject.GetComponent<EnemyFather>();
+            if (temp)
             {
-                var temp = collision.gameObject.GetComponent<EnemyFather>();
                 temp.Damage(damage);
-            }
-            catch (Exception e)
-            {
-                //Debug.LogError($"No Enemy in the collider, maybe collider is in different object or wrong layer used, Collided With {collision.gameObject.name}");
-                Debug.LogError(e);
             }
             //bulletSpawner.EndOne(this);
             print("se devuelve bala por colision");
