@@ -27,44 +27,6 @@ public class SceneSwitcher : MonoBehaviour
 
     private void Start()
     {
-        /*switch (SceneManager.GetActiveScene().name) {
-            case "MainMenu":
-                if (CheckpointSystem.FindObjectOfType<CheckpointSystem>())
-                {
-                    CheckpointSystem.Instance().ResetCheckpoint();
-                }
-                Counter c = FindObjectOfType<Counter>();
-                if (c && SceneManager.GetActiveScene().name != "Victory")
-                {
-                    Destroy(c.gameObject);
-                }
-                break;
-            case "Victory":
-                if (CheckpointSystem.FindObjectOfType<CheckpointSystem>())
-                {
-                    CheckpointSystem.Instance().ResetCheckpoint();
-                }
-                Counter c2 = FindObjectOfType<Counter>();
-                if (c2 && SceneManager.GetActiveScene().name != "Victory")
-                {
-                    c2.CancelInvoke();
-                }
-                break;
-            case "GameOver":
-                Counter c1 = FindObjectOfType<Counter>();
-                if (c1 && SceneManager.GetActiveScene().name != "Victory")
-                {
-                    c1.CancelInvoke();
-                }
-                break;
-            case "City":
-                Counter c3 = FindObjectOfType<Counter>();
-                if (c3 && SceneManager.GetActiveScene().name != "Victory")
-                {
-                    c3.InvokeRepeating("AddTime", 1f, 1f);
-                }
-                break;
-        }*/
     }
 
     // Update is called once per frame

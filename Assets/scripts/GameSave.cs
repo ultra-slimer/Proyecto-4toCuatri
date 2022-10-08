@@ -10,6 +10,8 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
 {
     public static int _Level;
     public int gems { get => GemManager._Gems; set => GemManager._Gems = value; }
+    public static bool _seenTutorial;
+    public bool seenTutorial;
     public static string _UserName;
     public int Level;
     public  string UserName;
@@ -20,6 +22,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         _gameSave = this;
         GameManager.Subscribe("UpdateWithSaveValues", UpdateWithSaveValues);
         GameManager.Subscribe("UpdateEditorValues", UpdateEditorValues);
@@ -37,6 +40,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         print(a_Save.gems);*/
         _Level = a_Save.level;
         _UserName = a_Save.user;
+        _seenTutorial = a_Save.seenTutorial;
         UpdateEditorValues();
     }
 
@@ -45,6 +49,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         a_Save.gems = gems;
         a_Save.level = _Level;
         a_Save.user = _UserName;
+        a_Save.seenTutorial = _seenTutorial;
     }
 
     public void SaveFile(GameSave testing)
@@ -54,7 +59,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         
         if(FileManager.WriteToFile(_fileName + ".dat", sf.SaveData()))
         {
-            print("Save Successful" + sf.user + sf.gems + sf.level);
+            print("Save Successful" + sf.user + sf.gems + sf.level + sf.seenTutorial);
         }
     }
 
@@ -66,12 +71,16 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             sf.LoadData(json);
 
             testing.LoadFromSaveData(sf);
-            print("Load Successful: " + GameSave._UserName + testing.gems + GameSave._Level);
+            print("Load Successful: " + GameSave._UserName + testing.gems + GameSave._Level + GameSave._seenTutorial);
         }
     }
-
+    public void DeleteSave()
+    {
+        FileManager.DeleteFile(_fileName + ".dat");
+    }
     private void Update()
     {
+        #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
             SaveAllData(this);
@@ -80,7 +89,8 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         {
             FileName();
             LoadFile(this);
-        }
+        } 
+        #endif
     }
     public static void SaveAllData(GameSave gameSave)
     {
@@ -97,12 +107,14 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     {
         _Level = Level;
         _UserName = UserName;
+        _seenTutorial = seenTutorial;
         FileName();
     }
     private void UpdateEditorValues()
     {
         Level = _Level;
         UserName = _UserName;
+        seenTutorial = _seenTutorial;
     }
     private void FileName()
     {

@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
 
     void Start()
     {
+        enemyFather = _enemy.GetComponent<EnemyFather>();
         _factory = new Factory<EnemyFather>(enemyFather);
         _pool = new ObjectPool<EnemyFather>(_factory.Get, SmartEnemy.Enable, SmartEnemy.Disable, 10);
     }

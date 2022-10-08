@@ -12,6 +12,7 @@ public class Save
     public int gems;
     public int level;
     public string user;
+    public bool seenTutorial;
 
     /*public void UpdateProgress(int newCoins, int newLevel)
     {
