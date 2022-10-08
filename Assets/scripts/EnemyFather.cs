@@ -81,8 +81,17 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
                 //GetComponent<Cards>().Damage(_damage);
                 //C.Damage(_damage);
 
+                if (hit.collider.GetComponent<IEndZone>() != null)
+                {
+                    hit.collider.GetComponent<IDamageable<float>>().Damage(1);
+
+                }
+                else
+                {
+
+                    hit.collider.GetComponent<IDamageable<float>>().Damage(_damage);
+                }
                 hit.collider.GetComponent<IAttackBack>()?.AttackAgressor(_damage, this);
-                hit.collider.GetComponent<IDamageable<float>>().Damage(_damage);
             }
         }
         else _canWalk = true;

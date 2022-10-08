@@ -18,15 +18,25 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     public static string _fileName = "SaveDAT";
     public string fileName = "SaveDAT";
     private static string _fullPath;
-    private static GameSave _gameSave;
+    public static GameSave _gameSave;
 
     private void Start()
     {
+        if (!_gameSave)
+        {
+            _gameSave = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
         _gameSave = this;
         GameManager.Subscribe("UpdateWithSaveValues", UpdateWithSaveValues);
         GameManager.Subscribe("UpdateEditorValues", UpdateEditorValues);
         GameManager.Subscribe("SaveRemotely", RemoteSave);
+        GameManager.Subscribe("DeleteSave", DeleteSave);
         FileName();
         _fullPath = Path.Combine(Application.dataPath + @"\Save", _fileName + ".dat");
         //print(_fullPath);

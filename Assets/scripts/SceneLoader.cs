@@ -6,8 +6,33 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
+    public static SceneLoader sceneLoader;
     [SerializeField] CanvasGroup loadScreen = null;
     [SerializeField] Image loadBar = null;
+    public static SceneLoader Instance()
+    {
+        if (!sceneLoader)
+        {
+            sceneLoader = FindObjectOfType<SceneLoader>();
+            if (!sceneLoader)
+            {
+                Debug.LogError("No hay sceneSwitcher activo");
+            }
+        }
+        return sceneLoader;
+    }
+    private void Start()
+    {
+        if (!sceneLoader || sceneLoader == this)
+        {
+            Instance();
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void AsyncLoadScene(string level)
     {

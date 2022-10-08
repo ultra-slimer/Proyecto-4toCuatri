@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         GameSave._seenTutorial = true;
+        GameManager.Trigger("SaveRemotely");
     }
 
 }
