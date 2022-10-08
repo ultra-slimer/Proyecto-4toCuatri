@@ -15,6 +15,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     float _time;
     [SerializeField]
     float _damage;
+    [SerializeField]
+    int _reward;
 
     public Transform[] allWaypoints;
     public int waypointTarget;
@@ -111,6 +113,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     public virtual void Death()
     {
         GemSpawner.gemSpawner.GetOne().transform.position = transform.position;
+        UpdateMoney.updatemoney.ActMoney(_reward);
         Destroy(gameObject);
     }
 }

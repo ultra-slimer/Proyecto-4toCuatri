@@ -111,13 +111,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 0
   thing: {fileID: 0}
-  attackableLayers:
+  ReactingLayers:
   - Unit
+  - Enemy
   _life: 1.5
   _speed: 0.75
   _attackSpeed: 1.5
   _time: 0
   _damage: 5
+  _reward: 25
   allWaypoints:
   - {fileID: 8608117995056105619, guid: a526acbcea3b79346b586f1aedf60679, type: 3}
   - {fileID: 5660354505536194575, guid: 83b0d0435221cbf4db52584e92f78f93, type: 3}

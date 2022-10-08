@@ -12,6 +12,8 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     public float damage;
     public int _Cost;   
     public Sprite AssignedCard;
+    [SerializeField]
+    int _gift;
 
     
 
@@ -24,6 +26,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     private void Start()
     {
         _Health = _MaxHealth;
+        _gift = _Cost / 10;
         Debug.Log(_Health);
        
     }
@@ -48,6 +51,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
 
     public void Death()
     {
+        UpdateMoney.updatemoney.ActMoney(_gift);
         StartCoroutine(ReEnableCooldown());
     }
 

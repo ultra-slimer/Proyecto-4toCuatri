@@ -8,12 +8,13 @@ public class UpdateMoney : MonoBehaviour
     [SerializeField]
     Text TextMoney;
 
-
+    public static UpdateMoney updatemoney;
 
     public int _money;
 
     void Start()
     {
+        updatemoney = this;
         ActMoney(300);
     }
 
