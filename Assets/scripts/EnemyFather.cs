@@ -112,7 +112,11 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 
     public virtual void Death()
     {
-        GemSpawner.gemSpawner.GetOne().transform.position = transform.position;
+        int a = Random.Range(1, 10);
+        if(a == 1)
+        {
+            GemSpawner.gemSpawner.GetOne().transform.position = transform.position;
+        }
         UpdateMoney.updatemoney.ActMoney(_reward);
         Destroy(gameObject);
     }

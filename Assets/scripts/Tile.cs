@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour, ITouchable
 {
+    private Renderer renderery;
+    public int materialID;
     public void Touched(RaycastHit hit)
     {
+        renderery = gameObject.GetComponent<Renderer>();
         Transform t = hit.collider.transform;
         Control control = FindObjectOfType<Control>();
         if (t.childCount == 0 && control.U._money >= control.D._numberOfCards[control.D.CardToUse]._Cost)
@@ -36,10 +39,12 @@ public class Tile : MonoBehaviour, ITouchable
         if (LayerMask.LayerToName(gameObject.layer) == "Cuadricula")
         {
             gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+            renderery.material = GetComponentInParent<Grid>().materials[1];
         }
         else
         {
             gameObject.layer = LayerMask.NameToLayer("Cuadricula");
+            renderery.material = GetComponentInParent<Grid>().materials[materialID];
         }
     }
 }
