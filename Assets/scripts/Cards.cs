@@ -57,7 +57,11 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
 
     private IEnumerator ReEnableCooldown()
     {
-        Destroy(gameObject.GetComponent<MeshRenderer>());
+        MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+        foreach(var a in meshRenderers)
+        {
+            Destroy(a);
+        }
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         yield return new WaitForSeconds(3);
         GetComponentInParent<Tile>()?.CanInteractToggle();

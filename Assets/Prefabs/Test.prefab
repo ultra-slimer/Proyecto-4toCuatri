@@ -96,10 +96,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Health: 0
-  _MaxHealth: 100
-  _Damage: 5
+  _MaxHealth: 25
+  damage: 0
   _Cost: 100
   AssignedCard: {fileID: 21300000, guid: 733d2ea2a6643744cb5881520e17d7c6, type: 3}
+  _gift: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &-1369760974177671509
 BoxCollider:
   m_ObjectHideFlags: 0

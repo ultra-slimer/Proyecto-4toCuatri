@@ -6,8 +6,14 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
 {
     [SerializeField]
     float _frequencyEnemies;
+    private float _OGFreq;
     public GameObject _enemy;
     private float _counter;
+    [Range(1.5f, 3)]
+    public float minSpawnRate;
+    [Range(0, 0.5f)]
+    public float increaseRatePercentage = 0.1f;
+    public int spawnAmount;
 
 
     public EnemyFather enemyFather;
@@ -16,6 +22,7 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
 
     void Start()
     {
+        _OGFreq = _frequencyEnemies;
         enemyFather = _enemy.GetComponent<EnemyFather>();
         _factory = new Factory<EnemyFather>(enemyFather);
         _pool = new ObjectPool<EnemyFather>(_factory.Get, SmartEnemy.Enable, SmartEnemy.Disable, 10);
@@ -30,10 +37,17 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
     private void Update()
     {
         _counter += Time.deltaTime;
-        if (_counter >= _frequencyEnemies && gameObject.activeSelf)
+        if (_counter >= _frequencyEnemies && gameObject.activeSelf && spawnAmount > 0)
         {
+            _frequencyEnemies = Mathf.Clamp(_frequencyEnemies * (100 - (100 * increaseRatePercentage)) * 0.01f, minSpawnRate, _OGFreq);
+            print(_frequencyEnemies);
             GetOne();
             _counter = 0;
+            spawnAmount -= 1;
+        }
+        else if (spawnAmount == 0 && FindObjectsOfType<SmartEnemy>() == null)
+        {
+            GameStateManager.gameStateManager.WonGame();
         }
     }
 

@@ -114,7 +114,7 @@ MonoBehaviour:
   ReactingLayers:
   - Unit
   - Enemy
-  _life: 1.5
+  _life: 15
   _speed: 0.75
   _attackSpeed: 1.5
   _time: 0
