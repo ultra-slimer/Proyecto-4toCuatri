@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     public static SceneLoader sceneLoader;
     [SerializeField] CanvasGroup loadScreen = null;
     [SerializeField] Image loadBar = null;
+    private AsyncOperation _asyncOperation;
     public static SceneLoader Instance()
     {
         if (!sceneLoader)
@@ -40,11 +41,14 @@ public class SceneLoader : MonoBehaviour
         {
             level = "Game";
         }
-        var async = SceneManager.LoadSceneAsync(level);
-        //var async = SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
-        //SceneManager.UnloadSceneAsync(gameObject.scene);
+        if (_asyncOperation == null)
+        {
+            _asyncOperation = SceneManager.LoadSceneAsync(level);
+            //var async = SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+            //SceneManager.UnloadSceneAsync(gameObject.scene);
 
-        StartCoroutine(WaitToLoadScene(async));
+            StartCoroutine(WaitToLoadScene(_asyncOperation));
+        }
     }
 
     IEnumerator WaitToLoadScene(AsyncOperation async)
@@ -62,7 +66,7 @@ public class SceneLoader : MonoBehaviour
         }
 
         Debug.Log("Tardó " + frames + " frames");
-        while (frames < 500)
+        while (frames < 100)
         {
             frames += 1;
             loadBar.fillAmount = async.progress;
@@ -70,6 +74,7 @@ public class SceneLoader : MonoBehaviour
         }
         loadScreen.alpha = 0;
         async.allowSceneActivation = true;
+        _asyncOperation = null;
         print("fuck");
     }
 }
