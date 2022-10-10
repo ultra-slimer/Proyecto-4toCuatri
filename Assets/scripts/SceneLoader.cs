@@ -36,7 +36,7 @@ public class SceneLoader : MonoBehaviour
 
     public void AsyncLoadScene(string level)
     {
-        if(level == "Controls" && GameSave._seenTutorial)
+        if(level == "Controls" && GameSave._seenTutorial && SceneManager.GetActiveScene().name != "Options")
         {
             level = "Game";
         }

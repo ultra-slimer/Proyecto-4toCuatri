@@ -29,7 +29,7 @@ public class Control : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000f, _layerMask))
+        if (Physics.Raycast(ray, out hit, 1000f, _layerMask) && !PauseMenu.paused)
         {
             hit.transform.GetComponent<ITouchable>().Touched(hit);
             /*if (t.childCount == 0 && U._money >= D._numberOfCards[D.CardToUse]._Cost)
