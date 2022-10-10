@@ -15,7 +15,7 @@ public class UpdateMoney : MonoBehaviour
     void Start()
     {
         updatemoney = this;
-        ActMoney(300);
+        ActMoney(400);
     }
 
     public void ActMoney(int Add)

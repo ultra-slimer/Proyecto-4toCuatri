@@ -98,7 +98,7 @@ MonoBehaviour:
   _Health: 0
   _MaxHealth: 25
   damage: 0
-  _Cost: 100
+  _Cost: 75
   AssignedCard: {fileID: 21300000, guid: 733d2ea2a6643744cb5881520e17d7c6, type: 3}
   _gift: 0
   layerMask:
