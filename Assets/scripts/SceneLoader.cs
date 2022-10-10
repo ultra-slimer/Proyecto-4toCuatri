@@ -36,13 +36,13 @@ public class SceneLoader : MonoBehaviour
 
     public void AsyncLoadScene(string level)
     {
-        if(level == "Controls" && GameSave._seenTutorial && SceneManager.GetActiveScene().name != "Options")
+        if(level == "Controls" && GameSave._seenTutorial && SceneManager.GetActiveScene().name == "MainMenu")
         {
             level = "Game";
         }
         var async = SceneManager.LoadSceneAsync(level);
         //var async = SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
-        //SceneManager.UnloadSceneAsync(0);
+        //SceneManager.UnloadSceneAsync(gameObject.scene);
 
         StartCoroutine(WaitToLoadScene(async));
     }
@@ -52,6 +52,7 @@ public class SceneLoader : MonoBehaviour
         async.allowSceneActivation = false;
         int frames = 0;
         loadScreen.alpha = 1;
+        if (Time.timeScale == 0) Time.timeScale = 1; print("Reseteo tiempo") ;
 
         while (async.progress < 0.89)
         {
@@ -68,7 +69,7 @@ public class SceneLoader : MonoBehaviour
             loadBar.fillAmount = async.progress;
             yield return new WaitForEndOfFrame();
         }
-
+        print("fuck");
         loadScreen.alpha = 0;
         async.allowSceneActivation = true;
     }

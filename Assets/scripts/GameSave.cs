@@ -9,7 +9,7 @@ using System.IO;
 public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
 {
     public static int _Level;
-    public int gems { get => GemManager._Gems; set => GemManager._Gems = value; }
+    public static int gems { get => GemManager._Gems; set => GemManager._Gems = value; }
     public static bool _seenTutorial;
     public bool seenTutorial;
     public static string _UserName;
@@ -20,7 +20,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     private static string _fullPath;
     public static GameSave _gameSave;
 
-    private void Start()
+    private void Awake()
     {
         if (!_gameSave)
         {
@@ -31,6 +31,9 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         {
             Destroy(gameObject);
         }
+    }
+    private void Start()
+    {
         DontDestroyOnLoad(gameObject);
         _gameSave = this;
         GameManager.Subscribe("UpdateWithSaveValues", UpdateWithSaveValues);
@@ -81,7 +84,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             sf.LoadData(json);
 
             testing.LoadFromSaveData(sf);
-            print("Load Successful: " + GameSave._UserName + testing.gems + GameSave._Level + GameSave._seenTutorial);
+            print("Load Successful: " + GameSave._UserName + GameSave.gems + GameSave._Level + GameSave._seenTutorial);
         }
     }
     public void DeleteSave()

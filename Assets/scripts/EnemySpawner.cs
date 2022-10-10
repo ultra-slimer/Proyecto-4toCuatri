@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
     [Range(0, 0.5f)]
     public float increaseRatePercentage = 0.1f;
     public int spawnAmount;
+    private bool won = false;
 
 
     public EnemyFather enemyFather;
@@ -45,9 +46,10 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
             _counter = 0;
             spawnAmount -= 1;
         }
-        else if (spawnAmount == 0 && FindObjectsOfType<SmartEnemy>() == null)
+        else if (spawnAmount == 0 && FindObjectsOfType<SmartEnemy>().Length == 0 && !won)
         {
             GameStateManager.gameStateManager.WonGame();
+            won = true;
         }
     }
 

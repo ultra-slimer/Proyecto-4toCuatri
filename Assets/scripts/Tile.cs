@@ -6,6 +6,13 @@ public class Tile : MonoBehaviour, ITouchable
 {
     private Renderer renderery;
     public int materialID;
+    private Vector3 _OGScale;
+    private Vector3 _OGPos;
+    private void Start()
+    {
+        _OGPos = transform.position;
+        _OGScale = transform.localScale;
+    }
     public void Touched(RaycastHit hit)
     {
         renderery = gameObject.GetComponent<Renderer>();
@@ -28,15 +35,15 @@ public class Tile : MonoBehaviour, ITouchable
         if (!PauseMenu.paused)
         {
             gameObject.transform.localScale += new Vector3(0.2f, 0.3f, 0.2f);
-            transform.localPosition += new Vector3(0, 0.2f, 0);
+            transform.position += new Vector3(0, 0.2f, 0);
         }
     }
     private void OnMouseExit()
     {
         if (!PauseMenu.paused)
         {
-            gameObject.transform.localScale -= new Vector3(0.2f, 0.3f, 0.2f);
-            transform.localPosition -= new Vector3(0, 0.2f, 0);
+            gameObject.transform.localScale = _OGScale;
+            transform.position = new Vector3(_OGPos.x, _OGPos.y, _OGPos.z);
         }
     }
 

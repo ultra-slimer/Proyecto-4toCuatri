@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         foreach (var a in canvas)
         {
             if (a.gameObject.name == "PauseMenu")
