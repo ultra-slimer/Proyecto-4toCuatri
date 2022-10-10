@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour
         }
         return sceneLoader;
     }
-    private void Start()
+    private void Awake()
     {
         if (!sceneLoader || sceneLoader == this)
         {
@@ -52,7 +52,6 @@ public class SceneLoader : MonoBehaviour
         async.allowSceneActivation = false;
         int frames = 0;
         loadScreen.alpha = 1;
-        if (Time.timeScale == 0) Time.timeScale = 1; print("Reseteo tiempo") ;
 
         while (async.progress < 0.89)
         {
@@ -69,8 +68,8 @@ public class SceneLoader : MonoBehaviour
             loadBar.fillAmount = async.progress;
             yield return new WaitForEndOfFrame();
         }
-        print("fuck");
         loadScreen.alpha = 0;
         async.allowSceneActivation = true;
+        print("fuck");
     }
 }

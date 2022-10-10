@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        canvas = FindObjectOfType<CanvasGroup>();
         canvas.alpha = 0;
+        //Screen.SetResolution(Screen.width, Screen.height, FullScreenMode.ExclusiveFullScreen, 30);
     }
 }
