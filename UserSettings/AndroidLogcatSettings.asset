@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "65d5653d",
         "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-        "processId": 14220,
+        "processId": 5376,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,18 @@
             "deviceId": "65d5653d",
             "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
             "processId": 14220,
+            "exited": false
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
+            "processId": 4795,
+            "exited": false
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
+            "processId": 5376,
             "exited": false
         }
     ],

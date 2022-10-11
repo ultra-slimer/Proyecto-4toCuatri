@@ -80,7 +80,6 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
            _time += Time.deltaTime;
             if(hit.transform.GetComponent<IObstacle>() != null)
             {
-                _anim.SetBool("_isAttacking", true);
                 _anim.SetBool("_isFollowing", false);
                 _canWalk = false;
             }
@@ -88,6 +87,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
             {
                 _time = 0;
 
+                _anim.SetBool("_isAttacking", true);
                 //Cards pipo = Cards.Instance();
                 //GetComponent<Cards>().Damage(_damage);
                 //C.Damage(_damage);
