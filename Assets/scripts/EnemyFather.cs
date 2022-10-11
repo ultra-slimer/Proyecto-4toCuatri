@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather>>, IAttack, IDamageable<float>, IKillable, IObstacle, ISpawnable<EnemyFather>
 {
-    public string[] ReactingLayers = { "Unit", "Enemy" };
+    public string[] ReactingLayers = { "Unit", "Enemy", "EndZone" };
     [SerializeField]
     float _life;
     [SerializeField]
@@ -77,12 +77,9 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         if (Physics.Raycast(ray, out hit, 1f, _layerMask))
         {
            
-           _time += Time.deltaTime;
-            if(hit.transform.GetComponent<IObstacle>() != null)
-            {
-                _anim.SetBool("_isFollowing", false);
-                _canWalk = false;
-            }
+            _time += Time.deltaTime;
+            _anim.SetBool("_isFollowing", false);
+            _canWalk = false;
             if (_attackSpeed <= _time && hit.transform.GetComponent<IDamageable<float>>() != null && hit.transform.GetComponent<EnemyFather>() == null)
             {
                 _time = 0;
