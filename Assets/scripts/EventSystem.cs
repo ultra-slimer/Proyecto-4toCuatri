@@ -25,6 +25,7 @@ public class EventSystem : MonoBehaviour
     {
         GameManager.Trigger("DeleteSave");
         GameSave._seenTutorial = false;
+        GameSave.gems = 0;
         GameManager.Trigger("SaveRemotely");
     }
 }
