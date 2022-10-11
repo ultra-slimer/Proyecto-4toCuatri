@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 5054376744420115408}
   - component: {fileID: 5054376744420115409}
   - component: {fileID: 5054376744420115410}
+  - component: {fileID: -913890776901106565}
   m_Layer: 7
   m_Name: SmartEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5054376744420115414
 Transform:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   _time: 0
   _damage: 5
   _reward: 25
+  _anim: {fileID: -913890776901106565}
   allWaypoints:
   - {fileID: 8608117995056105619, guid: a526acbcea3b79346b586f1aedf60679, type: 3}
   - {fileID: 5660354505536194575, guid: 83b0d0435221cbf4db52584e92f78f93, type: 3}
@@ -127,3 +129,22 @@ MonoBehaviour:
   - {fileID: 3101907556880617069, guid: 9b86e7ca0f47eea4a984f31691b044bb, type: 3}
   - {fileID: 1613182542390656533, guid: 3dc348cfc57439544b2223fcc7b1f4af, type: 3}
   waypointTarget: 4
+--- !u!95 &-913890776901106565
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054376744420115411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

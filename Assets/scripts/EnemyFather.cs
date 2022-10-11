@@ -17,6 +17,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     float _damage;
     [SerializeField]
     int _reward;
+    [SerializeField]
+    Animator _anim;
 
     public Transform[] allWaypoints;
     public int waypointTarget;
@@ -55,6 +57,10 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
             dir.y = 0;
             transform.forward = dir;
             transform.position += transform.forward * _speed * Time.deltaTime;
+
+            _anim.SetBool("_isFollowing", true);
+            _anim.SetBool("_isAttacking", false);
+
         }
 
         
@@ -65,14 +71,17 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     {
 
         var ray = new Ray(this.transform.position, this.transform.forward);
+       
         RaycastHit hit;
-        //Debug.DrawRay(this.transform.position, this.transform.forward, Color.yellow);
+        Debug.DrawRay(this.transform.position, this.transform.forward, Color.yellow);
         if (Physics.Raycast(ray, out hit, 1f, _layerMask))
         {
-            
+           
            _time += Time.deltaTime;
             if(hit.transform.GetComponent<IObstacle>() != null)
             {
+                _anim.SetBool("_isAttacking", true);
+                _anim.SetBool("_isFollowing", false);
                 _canWalk = false;
             }
             if (_attackSpeed <= _time && hit.transform.GetComponent<IDamageable<float>>() != null && hit.transform.GetComponent<EnemyFather>() == null)
@@ -85,6 +94,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 
                 if (hit.collider.GetComponent<IEndZone>() != null)
                 {
+                  
                     hit.collider.GetComponent<IDamageable<float>>().Damage(1);
 
                 }
@@ -112,6 +122,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 
     public virtual void Death()
     {
+       
         int a = Random.Range(1, 10);
         if(a == 1)
         {
@@ -120,4 +131,6 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         UpdateMoney.updatemoney.ActMoney(_reward);
         Destroy(gameObject);
     }
+
+    
 }
