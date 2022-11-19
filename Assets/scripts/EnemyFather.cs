@@ -35,7 +35,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 
     private void Awake()
     {
-        _time = 0;
+        _time = FlyweightPointer.BaseEnemy.time;
         _canWalk = true;
         _layerMask = LayerMask.GetMask(ReactingLayers);
         _self = this;
@@ -44,8 +44,11 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 
     public void Start()
     {
-     
-        
+        _life = FlyweightPointer.BaseEnemy.maxLife;
+        _damage = FlyweightPointer.BaseEnemy.damage;
+        _reward = FlyweightPointer.BaseEnemy.reward;
+        _attackSpeed = FlyweightPointer.BaseEnemy.attackSpeed;
+        _speed = FlyweightPointer.BaseEnemy.speed;
     }
 
     public override void Update()
