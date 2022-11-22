@@ -77,6 +77,7 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
         var temp = Random.Range(0, 5);
         enemyFather.waypointTarget = temp;
         enemyFather.transform.position = spawnPoints[temp].position;
+        enemyFather.Create(_pool);
         return enemyFather;
     }
 

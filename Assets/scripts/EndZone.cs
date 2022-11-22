@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndZone : MonoBehaviour, IObstacle, IDamageable<float>, IEndZone, IAttackBack
+public class EndZone : MonoBehaviour, IObstacle, IDamageable<float>, IEndZone
 {
     public float life = 3;
     private bool lost = false;
 
-    public void AttackAgressor(float damage, IDamageable<float> agressor)
+    public void AttackAgressor(IKillable agressor)
     {
-        agressor.Damage(999);
+        agressor.Death();
     }
 
     public void Damage(float damageTaken)
