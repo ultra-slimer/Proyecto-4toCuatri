@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IEndZone
 {
-    public void Damage(float a);
+    public void Damage(float a, IKillable b);
     public void AttackAgressor(IKillable b);
 }

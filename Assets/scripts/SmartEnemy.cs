@@ -6,6 +6,6 @@ public class SmartEnemy : EnemyFather, ISpawnable<SmartEnemy>
 {
     public void SaveThing(SmartEnemy newThing)
     {
-        thing = newThing;
+        self = newThing;
     }
 }

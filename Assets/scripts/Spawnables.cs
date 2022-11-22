@@ -7,7 +7,7 @@ public class Spawnables<T, U> : MonoBehaviour, ISpawnable<T> where T : ISpawnabl
 {
     private float _counter;
     public int maxTime;
-    public T thing;
+    public T self;
     protected ObjectPool<T> _referenceBack;
 
 
@@ -19,7 +19,7 @@ public class Spawnables<T, U> : MonoBehaviour, ISpawnable<T> where T : ISpawnabl
         if (_counter >= maxTime && gameObject.activeSelf)
         {
             //print("Se devuelve objeto");
-            _referenceBack.ReturnObject(thing);
+            _referenceBack.ReturnObject(self);
         }
 
     }
@@ -47,7 +47,7 @@ public class Spawnables<T, U> : MonoBehaviour, ISpawnable<T> where T : ISpawnabl
 
     public void SaveThing(T newThing)
     {
-        thing = newThing;
+        self = newThing;
     }
 }
 

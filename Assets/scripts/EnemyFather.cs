@@ -95,7 +95,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
                 if (hit.collider.GetComponent<IEndZone>() != null)
                 {
                   
-                    hit.collider.GetComponent<IDamageable<float>>().Damage(1);
+                    hit.collider.GetComponent<IEndZone>().Damage(1, this);
 
                 }
                 else
