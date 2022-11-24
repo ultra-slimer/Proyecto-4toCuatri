@@ -41,7 +41,7 @@ public class ScreenManager : MonoBehaviour
     public void CloseAll()
     {
         print(_stacks.Count);
-        for(int i = 0; i < _stacks.Count; i++)
+        while(_stacks.Count != 0)
         {
             _stacks.Pop().Desactivate();
         }

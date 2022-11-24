@@ -26,6 +26,6 @@ public class Confirmation : ScreenMessage
 
     public void BTN_No()
     {
-        ScreenManager.instance.Pop();
+        No();
     }
 }
