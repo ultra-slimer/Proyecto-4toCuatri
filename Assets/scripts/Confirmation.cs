@@ -7,6 +7,12 @@ public class Confirmation : ScreenMessage
     public delegate void confirm();
     public confirm Yes;
     public confirm No;
+    private void Start()
+    {
+        SetTransparent(1);
+        SetInteractionsButtons(false);
+        gameObject.SetActive(false);
+    }
     public override void Activate()
     {
         gameObject.SetActive(true);

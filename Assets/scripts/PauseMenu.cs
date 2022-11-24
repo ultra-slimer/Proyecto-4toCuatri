@@ -107,8 +107,8 @@ public class PauseMenu : ScreenMessage, IScreen
         {
             var a = nextScreen.GetComponent<Confirmation>();
             a.Yes = delegate { PauseMenu.MainMenu(); };
-            //a.No = delegate { ScreenManager.instance.Pop(); };
-            a.No = delegate { ScreenManager.instance.CloseAll(); };
+            a.No = delegate { ScreenManager.instance.Pop(); };
+            //a.No = delegate { ScreenManager.instance.CloseAll(); };
         }
         ScreenManager.instance.Push(nextScreen);
     }
