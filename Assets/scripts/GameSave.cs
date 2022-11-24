@@ -8,6 +8,7 @@ using System.IO;
 [Serializable]
 public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
 {
+    //statics are save values, nonstatics are cached values, to update save values you need to SaveAllValues() or modify a static value and then SaveRemotely/RemoteSave
     public static int _Level;
     public static int gems { get => GemManager._Gems; set => GemManager._Gems = value; }
     public static bool _seenTutorial;
@@ -118,9 +119,18 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
 
     private void UpdateWithSaveValues()
     {
-        _Level = Level;
-        _UserName = UserName;
-        _seenTutorial = seenTutorial;
+        if (Level > 0)
+        {
+            _Level = Level;
+        }
+        if(UserName != null)
+        {
+            _UserName = UserName;
+        }
+        if (!seenTutorial)
+        {
+            _seenTutorial = seenTutorial;
+        }
         FileName();
     }
     private void UpdateEditorValues()
@@ -137,9 +147,12 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             _fileName = "SaveDAT";
         }
     }
-    private static void RemoteSave()
+    private void RemoteSave()
     {
-        GameSave._gameSave.FileName();
-        _gameSave.SaveFile(_gameSave);
+        if (GetComponent<GameSave>())
+        {
+            GameSave._gameSave.FileName();
+            _gameSave.SaveFile(_gameSave);
+        }
     }
 }
