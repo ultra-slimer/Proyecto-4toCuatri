@@ -9,7 +9,7 @@ public class Confirmation : ScreenMessage
     public confirm No;
     private void Start()
     {
-        SetTransparent(1);
+        SetTransparent(0);
         SetInteractionsButtons(false);
         gameObject.SetActive(false);
     }

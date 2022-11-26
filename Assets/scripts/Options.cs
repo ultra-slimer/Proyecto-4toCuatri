@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Options : MonoBehaviour
 {
-    public CanvasGroup canvasGroup;
+    public ScreenMessage canvasGroup;
 
     public void DeleteConfirmation()
     {
-        canvasGroup.alpha = 1;
+
+        if (canvasGroup.GetComponent<Confirmation>())
+        {
+            var a = canvasGroup.GetComponent<Confirmation>();
+            a.Yes = delegate { GetComponent<EventSystem>().DeleteSave(); ScreenManager.instance.CloseAll(); };
+            a.No = delegate { ScreenManager.instance.Pop(); };
+        }
+        ScreenManager.instance.Push(canvasGroup);
+        /*canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
+        canvasGroup.blocksRaycasts = true;*/
     }
     public void CloseConfirmation()
     {
-        canvasGroup.alpha = 0;
+        /*canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
+        canvasGroup.blocksRaycasts = false;*/
     }
 }
