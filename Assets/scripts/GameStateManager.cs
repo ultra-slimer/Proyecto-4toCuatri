@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     public SceneLoader sceneLoader;
+    public int levelCompletionReward;
     public static GameStateManager gameStateManager;
     private void Start()
     {
@@ -21,6 +22,6 @@ public class GameStateManager : MonoBehaviour
     }
     public void WonGame()
     {
-        sceneLoader.AsyncLoadScene("Victory");
+        sceneLoader.RewardingSwitch("Victory", levelCompletionReward);
     }
 }

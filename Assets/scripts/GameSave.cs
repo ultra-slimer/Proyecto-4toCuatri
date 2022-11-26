@@ -91,6 +91,12 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     public void DeleteSave()
     {
         FileManager.DeleteFile(_fileName + ".dat");
+        gems = 0;
+        _Level = 0;
+        _UserName = string.Empty;
+        seenTutorial = false;
+        SaveFile(this);
+
     }
     private void Update()
     {

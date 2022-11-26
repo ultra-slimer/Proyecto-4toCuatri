@@ -22,7 +22,7 @@ public class Store : MonoBehaviour
         if (storeObject.pressResponseMessage.GetComponent<Confirmation>())
         {
             var a = storeObject.pressResponseMessage.GetComponent<Confirmation>();
-            a.Yes = delegate { GemManager.AddGems(-storeObject.price); GameManager.Trigger("SaveRemotely"); Store.instance.ReloadGems(); ScreenManager.instance.CloseAll(); };
+            a.Yes = delegate { if (storeObject.price < GemManager._Gems) { GemManager.AddGems(-storeObject.price); }; GameManager.Trigger("SaveRemotely"); Store.instance.ReloadGems(); ScreenManager.instance.CloseAll(); };
             a.No = delegate { ScreenManager.instance.Pop(); };
         }
         ScreenManager.instance.Push(storeObject.pressResponseMessage);

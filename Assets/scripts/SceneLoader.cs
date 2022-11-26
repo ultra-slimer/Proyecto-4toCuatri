@@ -50,6 +50,14 @@ public class SceneLoader : MonoBehaviour
             StartCoroutine(WaitToLoadScene(_asyncOperation));
         }
     }
+    public void RewardingSwitch(string level, int Reward)
+    {
+        AsyncLoadScene(level);
+        if (_asyncOperation.isDone)
+        {
+            GetComponent<RewardingSystem>().GetRewardValue(Reward);
+        }
+    }
 
     IEnumerator WaitToLoadScene(AsyncOperation async)
     {
