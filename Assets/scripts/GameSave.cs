@@ -19,6 +19,8 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     public static string _fileName = "SaveDAT";
     public string fileName = "SaveDAT";
     private static string _fullPath;
+    public static float _volume;
+    public float volume;
     public static GameSave _gameSave;
 
     private void Awake()
@@ -55,11 +57,13 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         _Level = a_Save.level;
         _UserName = a_Save.user;
         _seenTutorial = a_Save.seenTutorial;
+        _volume = a_Save.volume;
         UpdateEditorValues();
     }
 
     public void PopulateSaveData(Save a_Save)
     {
+        a_Save.volume = _volume;
         a_Save.gems = gems;
         a_Save.level = _Level;
         a_Save.user = _UserName;
@@ -73,7 +77,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         
         if(FileManager.WriteToFile(_fileName + ".dat", sf.SaveData()))
         {
-            print("Save Successful" + sf.user + sf.gems + sf.level + sf.seenTutorial);
+            print("Save Successful" + sf.user + sf.gems + sf.level + sf.seenTutorial + sf.volume);
         }
     }
 
@@ -85,7 +89,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             sf.LoadData(json);
 
             testing.LoadFromSaveData(sf);
-            print("Load Successful: " + GameSave._UserName + GameSave.gems + GameSave._Level + GameSave._seenTutorial);
+            print("Load Successful: " + GameSave._UserName + GameSave.gems + GameSave._Level + GameSave._seenTutorial + GameSave._volume);
         }
     }
     public void DeleteSave()
@@ -94,7 +98,8 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         gems = 0;
         _Level = 0;
         _UserName = string.Empty;
-        seenTutorial = false;
+        _seenTutorial = false;
+        _volume = 1;
         SaveFile(this);
 
     }
@@ -137,6 +142,10 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         {
             _seenTutorial = seenTutorial;
         }
+        if (volume != 1)
+        {
+            _volume = volume;
+        }
         FileName();
     }
     private void UpdateEditorValues()
@@ -144,6 +153,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         Level = _Level;
         UserName = _UserName;
         seenTutorial = _seenTutorial;
+        volume = _volume;
     }
     private void FileName()
     {

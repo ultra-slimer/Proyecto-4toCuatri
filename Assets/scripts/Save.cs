@@ -13,6 +13,7 @@ public class Save
     public int level;
     public string user;
     public bool seenTutorial;
+    public float volume;
 
     /*public void UpdateProgress(int newCoins, int newLevel)
     {
