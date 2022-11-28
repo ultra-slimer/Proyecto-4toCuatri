@@ -7,6 +7,8 @@ using TMPro;
 
 public class StaminaSystem : MonoBehaviour
 {
+    public static StaminaSystem instance;
+
     [SerializeField] int maxStamina = 10;
     [SerializeField] float timeToRecharge = 10f;
     static int staminaAmmount;
@@ -21,6 +23,10 @@ public class StaminaSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText = null;
     [SerializeField] TextMeshProUGUI fullTimeText = null;
 
+    public void Awake()
+    {
+        StaminaSystem.instance = this;
+    }
     private void Start()
     {
         if (!PlayerPrefs.HasKey("currentStamina"))
