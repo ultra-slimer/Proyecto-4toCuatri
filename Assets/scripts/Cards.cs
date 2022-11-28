@@ -15,6 +15,8 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     [SerializeField]
     int _gift;
 
+    public ParticleSystem DeathPartycle;
+
     
 
     private void Awake()
@@ -28,7 +30,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
         _Health = _MaxHealth;
         _gift = _Cost / 10;
         Debug.Log(_Health);
-       
+        DeathPartycle.Pause();
     }
     virtual public void Shoot()
     {
@@ -43,14 +45,13 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
         _Health -= damageTaken;
        
         if (_Health <= 0)
-        {
-            
+        {        
             Death();
         }
     }
 
     public void Death()
-    {
+    {       
         UpdateMoney.updatemoney.ActMoney(_gift);
         StartCoroutine(ReEnableCooldown());
     }
@@ -58,13 +59,16 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     private IEnumerator ReEnableCooldown()
     {
         MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+        DeathPartycle.Play();
         foreach(var a in meshRenderers)
         {
             Destroy(a);
         }
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        
         yield return new WaitForSeconds(3);
         GetComponentInParent<Tile>()?.CanInteractToggle();
+        //DeathPartycle.Play();
         Destroy(gameObject);
     }
 }

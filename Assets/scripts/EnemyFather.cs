@@ -28,6 +28,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     bool _canWalk;
     int _layerMask;
 
+    public ParticleSystem DamagePartycle;
+
     /*[SerializeField]
     Cards C;*/
 
@@ -39,6 +41,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         _canWalk = true;
         _layerMask = LayerMask.GetMask(ReactingLayers);
         _self = this;
+        DamagePartycle.Pause();
        
     }
 
@@ -112,6 +115,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     public virtual void Damage(float damageTaken)
     {
         _life -= damageTaken;
+        Instantiate(DamagePartycle, this.transform);
 
         if (_life <= 0)
         {
