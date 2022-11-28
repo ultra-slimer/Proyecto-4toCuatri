@@ -9,10 +9,10 @@ public class StaminaSystem : MonoBehaviour
 {
     [SerializeField] int maxStamina = 10;
     [SerializeField] float timeToRecharge = 10f;
-    int staminaAmmount;
+    static int staminaAmmount;
     bool restoring;
 
-    public bool HaveStamina { get => staminaAmmount > 0; }
+    public static bool HaveStamina { get => staminaAmmount > 0; }
 
     DateTime nextStaminaTime;
     DateTime lastStaminaTime;

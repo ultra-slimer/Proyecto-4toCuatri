@@ -19,7 +19,11 @@ public class EventSystem : MonoBehaviour
 
     public void LoadScene(string name)
     {
-        sceneLoader.AsyncLoadScene(name);
+        if (StaminaSystem.HaveStamina == true && name == "Controls" || name != "Controls")
+        {
+            sceneLoader.AsyncLoadScene(name);
+        }
+        //sceneLoader.AsyncLoadScene(name);
     }
     public void DeleteSave()
     {
