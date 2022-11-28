@@ -35,6 +35,11 @@ public class PauseMenu : ScreenMessage, IScreen
                 //canvas[i].alpha = 0;
                 //canvas[i].interactable = false;
                 canvas[i].gameObject.SetActive(false);
+                var a = FindObjectsOfType<AudioSource>();
+                foreach(var e in a)
+                {
+                    e.Pause();
+                }
             }
         }
         /*foreach (var a in canvas)
@@ -63,6 +68,11 @@ public class PauseMenu : ScreenMessage, IScreen
                 canvas[i].interactable = true;*/
                 SetInteractionsButtons(true);
                 canvas[i].gameObject.SetActive(true);
+                var a = FindObjectsOfType<AudioSource>();
+                foreach (var e in a)
+                {
+                    e.UnPause();
+                }
             }
             else
             {

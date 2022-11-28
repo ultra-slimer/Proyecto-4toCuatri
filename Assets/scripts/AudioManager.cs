@@ -31,7 +31,6 @@ public class AudioManager : MonoBehaviour
             Debug.Log("a");
             _CheckIfCurrentlyPlayingBGM();
         }
-        SwitchNoise(GameSave._volume);
     }
     public void Play(string name){
         //Sound s = clips.Find(clips, Sound => Sound.Name == name);
@@ -43,7 +42,7 @@ public class AudioManager : MonoBehaviour
         }
         if(s != null){
             s.source.Play();
-            //Debug.Log("Playing: " + name);
+            Debug.Log("Playing: " + name);
         }
         else{
             Debug.LogError("Missing sound: " + name);
@@ -151,5 +150,6 @@ public class AudioManager : MonoBehaviour
     public static void SwitchNoise(float volume)
     {
         AudioListener.volume = volume;
+        print(AudioListener.volume);
     }
 }

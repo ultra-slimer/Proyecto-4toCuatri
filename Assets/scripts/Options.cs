@@ -43,6 +43,6 @@ public class Options : MonoBehaviour
         GameSave._volume = volume;
         GameManager.Trigger("SaveRemotely");
         AudioManager.SwitchNoise(volume);
-        FindObjectOfType<AudioSource>().Play();
+        //FindObjectOfType<AudioSource>().Play();
     }
 }

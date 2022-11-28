@@ -48,6 +48,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         //print(_fullPath);
         LoadFile(this);
         UpdateWithSaveValues();
+        AudioManager.SwitchNoise(GameSave._volume);
     }
     public void LoadFromSaveData(Save a_Save)
     {

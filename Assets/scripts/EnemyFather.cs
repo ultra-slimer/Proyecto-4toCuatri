@@ -105,6 +105,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
                 {
 
                     hit.collider.GetComponent<IDamageable<float>>().Damage(_damage);
+                    AudioManager.Instance().Play("EnemyAttack");
                 }
                 hit.collider.GetComponent<IAttackBack>()?.AttackAgressor(_damage, this);
             }
@@ -120,6 +121,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         if (_life <= 0)
         {
             //print(_self);
+            AudioManager.Instance().Stop("EnemyAttack");
+            AudioManager.Instance().Play("EnemyDeath");
             _self.Death();
         }
     }

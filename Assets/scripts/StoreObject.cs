@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [SerializeField]
 public class StoreObject : MonoBehaviour
 {
+    public int purchaseID;
     public ScreenMessage pressResponseMessage;
     public int price;
     public string objectName;
@@ -18,6 +19,6 @@ public class StoreObject : MonoBehaviour
 
     public void Press()
     {
-        Store.instance.Select(this);
+        Store.instance.Select(this, purchaseID);
     }
 }

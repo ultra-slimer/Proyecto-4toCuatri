@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         canvas = FindObjectOfType<CanvasGroup>();
         canvas.alpha = 0;
+        AudioManager.SwitchNoise(GameSave._volume);
         //Screen.SetResolution(Screen.width, Screen.height, FullScreenMode.ExclusiveFullScreen, 30);
     }
 }

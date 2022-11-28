@@ -32,6 +32,7 @@ public class Control : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000f, _layerMask) && !PauseMenu.paused)
         {
             hit.transform.GetComponent<ITouchable>().Touched(hit);
+            AudioManager.Instance().Play("PlacingUnit");
             /*if (t.childCount == 0 && U._money >= D._numberOfCards[D.CardToUse]._Cost)
             {
                 GameObject g = Instantiate(D._numberOfCards[D.CardToUse].gameObject, t.position, gameObject.transform.rotation = Quaternion.Euler(0, 90, 0)) as GameObject;

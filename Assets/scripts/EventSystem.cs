@@ -14,7 +14,10 @@ public class EventSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print(GameSave._volume);
+        }
     }
 
     public void LoadScene(string name)
