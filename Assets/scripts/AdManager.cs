@@ -3,39 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class AdManager : MonoBehaviour, IUnityAdsListener
+public abstract class AdManager : MonoBehaviour, IUnityAdsListener
 {
-    [SerializeField] string gameID = "24d1e1c9-2b3e-4402-b2b5-14c2852d14c6";
+    [SerializeField] string gameID = "5053457";
     [SerializeField] string adToShow = "Rewarded_Android";
 
-    private void Start()
+    protected void Start()
     {
         Advertisement.AddListener(this);
         Advertisement.Initialize(gameID);
-
     }
 
-    public void PlayAd()
+    public virtual void PlayAd()
     {
         if (!Advertisement.IsReady()) return;
 
         Advertisement.Show(adToShow);
     }
 
-    public void OnUnityAdsReady(string placementId)
+    public virtual void OnUnityAdsReady(string placementId)
     {
         Debug.Log("Ads Ready");
     }
 
-    public void OnUnityAdsDidError(string message)
+    public virtual void OnUnityAdsDidError(string message)
     {
     }
 
-    public void OnUnityAdsDidStart(string placementId)
+    public virtual void OnUnityAdsDidStart(string placementId)
     {
     }
 
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    public virtual void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
         if(placementId == "Rewarded_Android")
         {

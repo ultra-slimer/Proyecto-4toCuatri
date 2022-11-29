@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventSystem : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class EventSystem : MonoBehaviour
 
     public void LoadScene(string name)
     {
-        if (StaminaSystem.HaveStamina == true && name == "Controls" || name != "Controls")
+        if (StaminaSystem.HaveStamina == true && name == "Controls" || (name != "Controls" && name != "Game") || SceneManager.GetActiveScene().name == "Options" || StaminaSystem.HaveStamina == true && name == "Game" )
         {
             sceneLoader.AsyncLoadScene(name);
         }

@@ -42,6 +42,7 @@ public class Store : MonoBehaviour
                 break;
             case 1:
                 //StaminaSystem.instance.RestoreEnergy();
+                StaminaSystem.instance.UseEnergy(-1);
                 break;
         }
     }
