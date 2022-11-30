@@ -7,13 +7,17 @@ using TMPro;
 
 public class StaminaSystem : MonoBehaviour
 {
+    [SerializeField]
     public static StaminaSystem instance;
 
-    [SerializeField] int maxStamina = 10;
+    public ScreenMessage pressResponseMessage;
+
+    [SerializeField] public int maxStamina = 10;
     [SerializeField] float timeToRecharge = 10f;
-    static int staminaAmmount;
+    public static int staminaAmmount;
     bool restoring;
 
+  
     public static bool HaveStamina { get => staminaAmmount > 0; }
 
     DateTime nextStaminaTime;
@@ -25,7 +29,7 @@ public class StaminaSystem : MonoBehaviour
 
     public void Awake()
     {
-        StaminaSystem.instance = this;
+        instance = this;
     }
     private void Start()
     {
@@ -102,16 +106,17 @@ public class StaminaSystem : MonoBehaviour
         }
         else
         {
+            FullRecharge();
             Debug.Log("No tenés stamina!!!!");
         }
     }
 
-    void UpdateStamina()
+    public void UpdateStamina()
     {
         staminaText.text = staminaAmmount.ToString() + " / " + maxStamina.ToString();
     }
 
-    void UpdateTimer()
+    public void UpdateTimer()
     {
         if (staminaAmmount >= maxStamina)
         {
@@ -150,5 +155,35 @@ public class StaminaSystem : MonoBehaviour
         {
             return DateTime.Parse(timeString);
         }
+    }
+
+    public void FullRecharge()
+    {
+
+        if (!HaveStamina)
+        {
+            if (pressResponseMessage.GetComponent<Confirmation>())
+            {
+                var a = pressResponseMessage.GetComponent<Confirmation>();
+                a.Yes = delegate { if (15  <= GemManager._Gems) { GemManager.AddGems(-15); AudioManager.Instance().Play("Positive"); staminaAmmount = maxStamina; UpdateStamina(); UpdateTimer(); ScreenManager.instance.CloseAll();} else { pressResponseMessage.nextScreen.GetComponent<ErrorMessage>().errorMessageText = "Insufficient Gems"; ScreenManager.instance.Push(pressResponseMessage.nextScreen); AudioManager.Instance().Play("Negative"); } GameManager.Trigger("SaveRemotely"); /*Store.instance.ReloadGems();*/ };
+                a.No = delegate { AudioManager.Instance().Play("Neutral"); ScreenManager.instance.Pop(); };
+            }
+            AudioManager.Instance().Play("Neutral");
+            ScreenManager.instance.Push(pressResponseMessage);
+            //staminaAmmount = maxStamina;
+        }
+       /*
+        if (pressResponseMessage.GetComponent<Confirmation>())
+            {
+                var a = pressResponseMessage.GetComponent<Confirmation>();
+                a.Yes = delegate { if (StoreObject.Instance.price <= GemManager._Gems) { GemManager.AddGems(-StoreObject.Instance.price); AudioManager.Instance().Play("Positive"); Store.Buy(StoreObject.Instance.purchaseID); ScreenManager.instance.CloseAll(); staminaAmmount = maxStamina; } else { pressResponseMessage.nextScreen.GetComponent<ErrorMessage>().errorMessageText = "Insufficient Gems"; ScreenManager.instance.Push(pressResponseMessage.nextScreen); AudioManager.Instance().Play("Negative"); } GameManager.Trigger("SaveRemotely"); Store.instance.ReloadGems(); };
+                a.No = delegate { AudioManager.Instance().Play("Neutral"); ScreenManager.instance.Pop(); };
+            }
+            AudioManager.Instance().Play("Neutral");
+            ScreenManager.instance.Push(pressResponseMessage);
+            //staminaAmmount = maxStamina;
+            */
+  
+       
     }
 }
