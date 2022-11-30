@@ -42,7 +42,9 @@ public class Store : MonoBehaviour
                 break;
             case 1:
                 //StaminaSystem.instance.RestoreEnergy();
-                StaminaSystem.instance.UseEnergy(-1);
+                print("a");
+                FindObjectOfType<StaminaSystem>().FullRecharge();
+                AudioManager.Instance().Play("Positive");
                 break;
         }
     }

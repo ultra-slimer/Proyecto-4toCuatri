@@ -160,8 +160,9 @@ public class StaminaSystem : MonoBehaviour
     public void FullRecharge()
     {
 
-        if (!HaveStamina)
+        if (!HaveStamina || staminaAmmount < maxStamina)
         {
+            print("b");
             if (pressResponseMessage.GetComponent<Confirmation>())
             {
                 var a = pressResponseMessage.GetComponent<Confirmation>();
