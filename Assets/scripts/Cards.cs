@@ -66,7 +66,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
         }
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         GetComponentInParent<Tile>()?.CanInteractToggle();
         //DeathPartycle.Play();
         Destroy(gameObject);
