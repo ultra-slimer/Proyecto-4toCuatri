@@ -37,6 +37,25 @@
                 "com.unity3d.player.UnityPlayerActivity"
             ]
         },
-        "DrawableResources": []
+        "DrawableResources": [
+            {
+                "Id": "Icon_reminder_l",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "8eb868b87e7974949be6f33dff6f9381",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "Icon_reminder_s",
+                "Type": 0,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "a9fb582eeb26ba34da0ecdc3eeb3f7b4",
+                    "type": 3
+                }
+            }
+        ]
     }
 }
