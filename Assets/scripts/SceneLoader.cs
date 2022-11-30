@@ -74,7 +74,7 @@ public class SceneLoader : MonoBehaviour
         }
 
         Debug.Log("Tardó " + frames + " frames");
-        while (frames < 100)
+        while (frames < 50)
         {
             frames += 1;
             loadBar.fillAmount = async.progress;

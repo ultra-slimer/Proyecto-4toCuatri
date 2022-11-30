@@ -3,93 +3,63 @@
     "m_SelectedPackage": {
         "deviceId": "65d5653d",
         "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-        "processId": 3037,
+        "processId": 18685,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "65d5653d",
-            "name": "com.android.settings",
-            "processId": 26414,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 32104,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 17155,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 1397,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 4863,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 13862,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 14220,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 4795,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 5376,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 16435,
-            "exited": false
-        },
-        {
-            "deviceId": "65d5653d",
             "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
             "processId": 22126,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "65d5653d",
             "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
             "processId": 24854,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "65d5653d",
             "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
             "processId": 29376,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "65d5653d",
             "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
             "processId": 3037,
+            "exited": true
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.google.android.googlequicksearchbox:search",
+            "processId": 26193,
+            "exited": false
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.miui.home",
+            "processId": 8999,
+            "exited": true
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.cxinventor.file.explorer",
+            "processId": 25634,
+            "exited": false
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
+            "processId": 8715,
+            "exited": false
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
+            "processId": 18685,
             "exited": false
         }
     ],
