@@ -44,6 +44,10 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         DamagePartycle.Pause();
        
     }
+    private void OnEnable()
+    {
+        DamagePartycle.Pause();
+    }
 
     public void Start()
     {

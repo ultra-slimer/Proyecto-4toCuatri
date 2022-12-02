@@ -23,6 +23,7 @@ public class Tile : MonoBehaviour, ITouchable
             GameObject g = Instantiate(control.D._numberOfCards[control.D.CardToUse].gameObject, t.position, Quaternion.Euler(0, 90, 0)) as GameObject;
             CanInteractToggle();
             g.transform.SetParent(t);
+            AudioManager.Instance().Play("PlacingUnit");
 
             //Debug.Log("fun2");
 

@@ -11,7 +11,7 @@ public abstract class AdManager : MonoBehaviour, IUnityAdsListener
     protected void Start()
     {
         Advertisement.AddListener(this);
-        Advertisement.Initialize(gameID);
+        Advertisement.Initialize(gameID, true);
     }
 
     public virtual void PlayAd()
