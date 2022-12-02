@@ -27,6 +27,8 @@ public class StaminaSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText = null;
     [SerializeField] TextMeshProUGUI fullTimeText = null;
 
+    int notifID;
+
     public void Awake()
     {
         instance = this;
@@ -47,6 +49,12 @@ public class StaminaSystem : MonoBehaviour
 
         LoadTime();
         StartCoroutine(RestoreEnergy());
+
+        if (staminaAmmount < maxStamina)
+        {
+            notifID = NotificationManager.Instance.DisplayNotif("Stamina Full", "Se te recargó toda la stamina",
+                AddDuration(DateTime.Now, ((maxStamina - staminaAmmount) * timeToRecharge) + 1f));
+        }
     }
 
     IEnumerator RestoreEnergy()
@@ -91,7 +99,7 @@ public class StaminaSystem : MonoBehaviour
             SaveTime();
             yield return new WaitForEndOfFrame();
         }
-
+        NotificationManager.Instance.CancelNotif(notifID);
         restoring = false;
     }
 
@@ -106,6 +114,10 @@ public class StaminaSystem : MonoBehaviour
         {
             staminaAmmount -= energyAmmount;
             UpdateStamina();
+
+            NotificationManager.Instance.CancelNotif(notifID);
+            notifID = NotificationManager.Instance.DisplayNotif("Stamina Full", "Se te recargó toda la stamina",
+                AddDuration(DateTime.Now, ((maxStamina - staminaAmmount) * timeToRecharge) + 1f));
 
             if (!restoring)
             {
