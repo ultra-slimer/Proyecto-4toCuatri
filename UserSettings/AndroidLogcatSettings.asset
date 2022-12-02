@@ -1,42 +1,18 @@
 {
     "m_SelectedDeviceId": "65d5653d",
     "m_SelectedPackage": {
-        "deviceId": "65d5653d",
-        "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-        "processId": 18685,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 22126,
-            "exited": true
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 24854,
-            "exited": true
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 29376,
-            "exited": true
-        },
-        {
-            "deviceId": "65d5653d",
-            "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
-            "processId": 3037,
-            "exited": true
-        },
-        {
-            "deviceId": "65d5653d",
             "name": "com.google.android.googlequicksearchbox:search",
             "processId": 26193,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "65d5653d",
@@ -48,18 +24,24 @@
             "deviceId": "65d5653d",
             "name": "com.cxinventor.file.explorer",
             "processId": 25634,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "65d5653d",
             "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
             "processId": 8715,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "65d5653d",
             "name": "com.DefaultCompany.JuegoCuartoCuatrimestre",
             "processId": 18685,
+            "exited": true
+        },
+        {
+            "deviceId": "65d5653d",
+            "name": "com.miui.home",
+            "processId": 32199,
             "exited": false
         }
     ],

@@ -5,13 +5,14 @@ using UnityEngine.Advertisements;
 
 public abstract class AdManager : MonoBehaviour, IUnityAdsListener
 {
-    [SerializeField] string gameID = "5053457";
+    [SerializeField] string gameID = "5057529";
+    [SerializeField] string gameIDiOS = "5057528";
     [SerializeField] string adToShow = "Rewarded_Android";
 
-    protected void Start()
+    public virtual void Start()
     {
         Advertisement.AddListener(this);
-        Advertisement.Initialize(gameID, true);
+        Advertisement.Initialize(gameID);
     }
 
     public virtual void PlayAd()
