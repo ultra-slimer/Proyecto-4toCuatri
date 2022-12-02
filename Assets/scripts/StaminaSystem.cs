@@ -30,6 +30,15 @@ public class StaminaSystem : MonoBehaviour
     public void Awake()
     {
         instance = this;
+        
+        
+        if (staminaAmmount >= maxStamina)
+        {
+            timerText.text = "";
+            fullTimeText.text = "Stamina Full!";
+            
+        }
+        
     }
     private void Start()
     {
