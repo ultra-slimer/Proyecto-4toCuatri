@@ -27,7 +27,9 @@ public class NotificationManager : MonoBehaviour
         notification.Text = "Los enemigos no descansan!!";
         notification.SmallIcon = "Icon_reminder_s";
         notification.LargeIcon = "Icon_reminder_l";
-        notification.FireTime = DateTime.Now.AddSeconds(15);
+        notification.FireTime = System.DateTime.Now.AddMinutes(60);
+       
+        
 
         AndroidNotificationCenter.SendNotification(notification, "reminder_notif");
     }
