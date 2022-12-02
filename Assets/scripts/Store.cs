@@ -8,7 +8,7 @@ public class Store : MonoBehaviour
     public Text text;
     public static Store instance;
     private StoreObject[] storeObjects;
-    public ErrorMessage errorMessage;
+    [SerializeField] public ErrorMessage errorMessages;
     private void Awake()
     {
         instance = this;
@@ -33,7 +33,7 @@ public class Store : MonoBehaviour
         text.text = "Gems: " + GameSave.gems;
     }
 
-    public static void Buy(int a)
+    public static void Buy(int a, StoreObject bought)
     {
         switch (a)
         {
@@ -45,6 +45,25 @@ public class Store : MonoBehaviour
                 print("a");
                 FindObjectOfType<StaminaSystem>().FullRecharge();
                 AudioManager.Instance().Play("Positive");
+                GemManager.AddGems(-bought.price); 
+                ScreenManager.instance.CloseAll();
+                break;
+            case 2:
+                GameManager.Trigger("UpdateWithSaveValues");
+                if (GameSave._bonusReward)
+                {
+                    instance.errorMessages.errorMessageText = "You already have this enabled"; 
+                    ScreenManager.instance.Push(instance.errorMessages);
+                    AudioManager.Instance().Play("Negative");
+
+                }
+                else
+                {
+                    GameSave._bonusReward = true;
+                    AudioManager.Instance().Play("Positive");
+                    GemManager.AddGems(-bought.price); 
+                    ScreenManager.instance.CloseAll();
+                }
                 break;
         }
     }

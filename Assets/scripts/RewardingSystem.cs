@@ -10,6 +10,12 @@ public class RewardingSystem : MonoBehaviour
     private string _template;
     private void Start()
     {
+        if (GameSave._bonusReward)
+        {
+            reward *= 2;
+            GameSave._bonusReward = false;
+            GameManager.Trigger("SaveRemotely");
+        }
         _template = banner.text;
         banner.text += reward;
     }

@@ -36,7 +36,7 @@ public class StoreObject : MonoBehaviour
         if (pressResponseMessage.GetComponent<Confirmation>())
         {
             var a = pressResponseMessage.GetComponent<Confirmation>();
-            a.Yes = delegate { if (price <= GemManager._Gems) { GemManager.AddGems(-price); Store.Buy(purchaseID); ScreenManager.instance.CloseAll(); } else { pressResponseMessage.nextScreen.GetComponent<ErrorMessage>().errorMessageText = "Insufficient Gems"; ScreenManager.instance.Push(pressResponseMessage.nextScreen); AudioManager.Instance().Play("Negative"); } GameManager.Trigger("SaveRemotely"); Store.instance.ReloadGems();};
+            a.Yes = delegate { if (price <= GemManager._Gems) { Store.Buy(purchaseID, this); } else { pressResponseMessage.nextScreen.GetComponent<ErrorMessage>().errorMessageText = "Insufficient Gems"; ScreenManager.instance.Push(pressResponseMessage.nextScreen); AudioManager.Instance().Play("Negative"); } GameManager.Trigger("SaveRemotely"); Store.instance.ReloadGems();};
             a.No = delegate { AudioManager.Instance().Play("Neutral"); ScreenManager.instance.Pop(); };
         }
         AudioManager.Instance().Play("Neutral");

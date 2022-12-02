@@ -14,6 +14,7 @@ public class Save
     public string user;
     public bool seenTutorial;
     public float volume;
+    public bool bonusReward;
 
     /*public void UpdateProgress(int newCoins, int newLevel)
     {
