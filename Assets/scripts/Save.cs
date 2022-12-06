@@ -15,6 +15,7 @@ public class Save
     public bool seenTutorial;
     public float volume;
     public bool bonusReward;
+    public bool increaseGemChance;
 
     /*public void UpdateProgress(int newCoins, int newLevel)
     {

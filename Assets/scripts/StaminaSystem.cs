@@ -190,9 +190,13 @@ public class StaminaSystem : MonoBehaviour
                 a.Yes = delegate { if (15  <= GemManager._Gems) { GemManager.AddGems(-15); AudioManager.Instance().Play("Positive"); staminaAmmount = maxStamina; UpdateStamina(); UpdateTimer(); ScreenManager.instance.CloseAll();} else { pressResponseMessage.nextScreen.GetComponent<ErrorMessage>().errorMessageText = "Insufficient Gems"; ScreenManager.instance.Push(pressResponseMessage.nextScreen); AudioManager.Instance().Play("Negative"); } GameManager.Trigger("SaveRemotely"); /*Store.instance.ReloadGems();*/ };
                 a.No = delegate { AudioManager.Instance().Play("Neutral"); ScreenManager.instance.Pop(); };
             }
-            AudioManager.Instance().Play("Neutral");
+            AudioManager.Instance().Play("Negative");
             ScreenManager.instance.Push(pressResponseMessage);
             //staminaAmmount = maxStamina;
+        }
+        else
+        {
+            AudioManager.Instance().Play("Negative");
         }
        /*
         if (pressResponseMessage.GetComponent<Confirmation>())

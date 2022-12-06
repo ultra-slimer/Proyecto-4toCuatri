@@ -11,6 +11,7 @@ public class shootingUnit : Cards, IAttack
     public Transform block;
     public Transform shootStartPoint;
     public BulletSpawner bulletSpawner;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -18,6 +19,10 @@ public class shootingUnit : Cards, IAttack
         if (!bulletSpawner)
         {
             bulletSpawner = FindObjectOfType<BulletSpawner>();
+        }
+        if (!_audioSource)
+        {
+            _audioSource = GetComponent<AudioSource>();
         }
     }
 
@@ -49,6 +54,7 @@ public class shootingUnit : Cards, IAttack
         Bullet temp = bulletSpawner.GetOne();
         temp.transform.position = shootStartPoint.position;
         temp.damage = damage;
+        _audioSource.Play();
         print(damage);
         yield return new WaitForSeconds(temp.maxTime);
     }

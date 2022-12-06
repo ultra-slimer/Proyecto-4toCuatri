@@ -65,6 +65,22 @@ public class Store : MonoBehaviour
                     ScreenManager.instance.CloseAll();
                 }
                 break;
+            case 3:
+                GameManager.Trigger("UpdateWithSaveValues");
+                if (GameSave._increasedGemChance)
+                {
+                    instance.errorMessages.errorMessageText = "You already have this enabled";
+                    ScreenManager.instance.Push(instance.errorMessages);
+                    AudioManager.Instance().Play("Negative");
+                }
+                else
+                {
+                    GameSave._increasedGemChance = true;
+                    AudioManager.Instance().Play("Positive");
+                    GemManager.AddGems(-bought.price);
+                    ScreenManager.instance.CloseAll();
+                }
+                break;
         }
     }
 }

@@ -24,6 +24,8 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
     public static bool _bonusReward;
     public bool bonusReward;
     public static GameSave _gameSave;
+    public static bool _increasedGemChance;
+    public bool increaseGemChance;
 
     private void Awake()
     {
@@ -62,6 +64,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         _seenTutorial = a_Save.seenTutorial;
         _volume = a_Save.volume;
         _bonusReward = a_Save.bonusReward;
+        _increasedGemChance = a_Save.increaseGemChance;
         UpdateEditorValues();
     }
 
@@ -73,6 +76,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         a_Save.user = _UserName;
         a_Save.seenTutorial = _seenTutorial;
         a_Save.bonusReward = _bonusReward;
+        a_Save.increaseGemChance = _increasedGemChance;
     }
 
     public void SaveFile(GameSave testing)
@@ -82,7 +86,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         
         if(FileManager.WriteToFile(_fileName + ".dat", sf.SaveData()))
         {
-            print("Save Successful" + sf.user + sf.gems + sf.level + sf.seenTutorial + sf.volume + sf.bonusReward);
+            print("Save Successful" + sf.user + sf.gems + sf.level + sf.seenTutorial + sf.volume + sf.bonusReward + sf.increaseGemChance);
         }
     }
 
@@ -94,7 +98,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
             sf.LoadData(json);
 
             testing.LoadFromSaveData(sf);
-            print("Load Successful: " + GameSave._UserName + GameSave.gems + GameSave._Level + GameSave._seenTutorial + GameSave._volume + GameSave._bonusReward);
+            print("Load Successful: " + GameSave._UserName + GameSave.gems + GameSave._Level + GameSave._seenTutorial + GameSave._volume + GameSave._bonusReward + GameSave._increasedGemChance);
         }
     }
     public void DeleteSave()
@@ -106,6 +110,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         _seenTutorial = false;
         _volume = 1;
         _bonusReward = false;
+        _increasedGemChance = false;
         SaveFile(this);
 
     }
@@ -156,6 +161,10 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         {
             _bonusReward = bonusReward;
         }
+        if (!increaseGemChance)
+        {
+            _increasedGemChance = increaseGemChance;
+        }
         FileName();
     }
     private void UpdateEditorValues()
@@ -165,6 +174,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         seenTutorial = _seenTutorial;
         volume = _volume;
         bonusReward = _bonusReward;
+        increaseGemChance = _increasedGemChance;
     }
     private void FileName()
     {

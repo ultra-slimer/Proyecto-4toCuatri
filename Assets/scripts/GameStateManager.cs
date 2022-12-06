@@ -18,10 +18,14 @@ public class GameStateManager : MonoBehaviour
 
     public void LostGame()
     {
+        GameSave._increasedGemChance = false;
+        GameManager.Trigger("SaveRemotely");
         sceneLoader.AsyncLoadScene("GameOver");
     }
     public void WonGame()
     {
+        GameSave._increasedGemChance = false;
+        GameManager.Trigger("SaveRemotely");
         sceneLoader.RewardingSwitch("Victory", levelCompletionReward);
     }
 }

@@ -18,6 +18,7 @@ public class RewardingSystem : MonoBehaviour
         }
         _template = banner.text;
         banner.text += reward;
+        GetComponent<AudioSource>().Play();
     }
     public void GetRewardValue(int a)
     {
