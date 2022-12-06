@@ -99,9 +99,13 @@ public class AudioManager : MonoBehaviour
         //Debug.Log(s.Length);
         if(s.Length > 1){
             foreach(var a in s){
-                if(a.name.Contains("BGM") && a.gameObject != this.gameObject){
+                if (a.name.Contains("BGM") && a.gameObject != this.gameObject) {
                     Debug.Log("Destroy");
                     Destroy(a.gameObject);
+                }
+                else if (a.name.Contains("BGM"))
+                {
+                    DontDestroyOnLoad(a.gameObject);
                 }
             }
         }
