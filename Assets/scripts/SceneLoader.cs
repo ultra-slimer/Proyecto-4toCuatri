@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     public static SceneLoader sceneLoader;
     [SerializeField] CanvasGroup loadScreen = null;
     [SerializeField] Image loadBar = null;
+    [SerializeField] Button button = null;
     private AsyncOperation _asyncOperation;
     public static SceneLoader Instance()
     {
@@ -47,6 +48,10 @@ public class SceneLoader : MonoBehaviour
             //var async = SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
             //SceneManager.UnloadSceneAsync(gameObject.scene);
 
+            button.gameObject.SetActive(false);
+            loadScreen.interactable = false;
+            loadScreen.blocksRaycasts = false;
+            loadBar.gameObject.SetActive(true);
             StartCoroutine(WaitToLoadScene(_asyncOperation));
         }
     }
@@ -80,9 +85,22 @@ public class SceneLoader : MonoBehaviour
             loadBar.fillAmount = async.progress;
             yield return new WaitForEndOfFrame();
         }
-        loadScreen.alpha = 0;
+        /*loadScreen.alpha = 0;
         async.allowSceneActivation = true;
-        _asyncOperation = null;
+        _asyncOperation = null;*/
+        loadBar.gameObject.SetActive(false);
+        button.gameObject.SetActive(true);
+        loadScreen.interactable = true;
+        loadScreen.blocksRaycasts = true;
         print("fuck");
+    }
+    
+    public void GoNext()
+    {
+        loadScreen.alpha = 0;
+        _asyncOperation.allowSceneActivation = true;
+        _asyncOperation = null;
+        loadScreen.interactable = false;
+        loadScreen.blocksRaycasts = false;
     }
 }

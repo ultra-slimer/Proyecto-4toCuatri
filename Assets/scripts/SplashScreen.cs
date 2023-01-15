@@ -12,4 +12,8 @@ public class SplashScreen : MonoBehaviour
         }
 
     }
+    public void boton()
+    {
+        SceneLoader.sceneLoader.GoNext();
+    }
 }
