@@ -8,6 +8,10 @@ public class RewardingSystem : MonoBehaviour
     public int reward;
     public Text banner;
     private string _template;
+    public ErrorMessage pressResponseMessage;
+    [SerializeField]
+    public List<Button> buttonsToEnable;
+    public List<GameObject> buttonsToDisable;
     private void Start()
     {
         if (GameSave._bonusReward)
@@ -38,5 +42,18 @@ public class RewardingSystem : MonoBehaviour
     public void UpdateRewardText()
     {
         banner.text = _template + reward;
+    }
+
+    public void BTN_ReceiveReward()
+    {
+        for (int i = 0; i < buttonsToEnable.Count; i++)
+        {
+            buttonsToEnable[i].gameObject.SetActive(true);
+        }
+        for (int i = 0; i < buttonsToDisable.Count; i++)
+        {
+            buttonsToDisable[i].gameObject.SetActive(false);
+        }
+        CreditReward();
     }
 }
