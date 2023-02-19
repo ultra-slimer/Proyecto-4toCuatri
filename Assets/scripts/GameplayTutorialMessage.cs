@@ -7,12 +7,27 @@ public class GameplayTutorialMessage : MonoBehaviour
 {
     public int ID;
     public List<string> textStrings = new List<string>();
-    public List<Text> texts = new List<Text>();
-    public List<Image> images = new List<Image>();
-    public GameplayTutorialMessage nextMessage;
+    static List<Text> texts = new List<Text>();
+    static List<Image> images = new List<Image>();
     public delegate void turn();
-    public Canvas canvas;
+    public CanvasGroup canvas;
+    private static CanvasGroup _canvas;
 
-    public turn ON;
-    public turn OFF;
+    private void Start()
+    {
+        texts.AddRange(canvas.GetComponents<Text>());
+        images.AddRange(canvas.GetComponents<Image>());
+        _canvas = canvas;
+    }
+
+    public turn ON = delegate {
+        _canvas.alpha = 1;
+        _canvas.blocksRaycasts = true;
+        _canvas.interactable = true;
+    };
+    public turn OFF = delegate {
+        _canvas.alpha = 0;
+        _canvas.blocksRaycasts = false;
+        _canvas.interactable = false;
+    };
 }

@@ -33,7 +33,7 @@ public class Tile : MonoBehaviour, ITouchable
 
     private void OnMouseEnter()
     {
-        if (!PauseMenu.paused)
+        if (Time.timeScale > 0.001f)
         {
             gameObject.transform.localScale += new Vector3(0.2f, 0.3f, 0.2f);
             transform.position += new Vector3(0, 0.2f, 0);
@@ -41,7 +41,7 @@ public class Tile : MonoBehaviour, ITouchable
     }
     private void OnMouseExit()
     {
-        if (!PauseMenu.paused)
+        if (Time.timeScale > 0.001f)
         {
             gameObject.transform.localScale = _OGScale;
             transform.position = new Vector3(_OGPos.x, _OGPos.y, _OGPos.z);

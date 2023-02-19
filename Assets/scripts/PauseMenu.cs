@@ -22,7 +22,7 @@ public class PauseMenu : ScreenMessage, IScreen
         for (int i = 0; i < canvas.Count; i++) {
             if(i == pauseID)
             {
-                Time.timeScale = 0;
+                Time.timeScale = 0.001f;
                 paused = true;
                 //canvas[i].alpha = 1;
                 //canvas[i].blocksRaycasts = true;

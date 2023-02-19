@@ -35,20 +35,23 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
         }
         else
         {
-            _counter += Time.deltaTime;
-            if (_counter >= _frequencyEnemies && gameObject.activeSelf && spawnAmount > 0)
+            spawnAction = delegate
             {
-                _frequencyEnemies = Mathf.Clamp(_frequencyEnemies * (100 - (100 * increaseRatePercentage)) * 0.01f, minSpawnRate, _OGFreq);
-                print(_frequencyEnemies);
-                GetOne();
-                _counter = 0;
-                spawnAmount -= 1;
-            }
-            else if (spawnAmount == 0 && FindObjectsOfType<SmartEnemy>().Length == 0 && !won)
-            {
-                GameStateManager.gameStateManager.WonGame();
-                won = true;
-            }
+                _counter += Time.deltaTime;
+                if (_counter >= _frequencyEnemies && gameObject.activeSelf && spawnAmount > 0)
+                {
+                    _frequencyEnemies = Mathf.Clamp(_frequencyEnemies * (100 - (100 * increaseRatePercentage)) * 0.01f, minSpawnRate, _OGFreq);
+                    print(_frequencyEnemies);
+                    GetOne();
+                    _counter = 0;
+                    spawnAmount -= 1;
+                }
+                else if (spawnAmount == 0 && FindObjectsOfType<SmartEnemy>().Length == 0 && !won)
+                {
+                    GameStateManager.gameStateManager.WonGame();
+                    won = true;
+                }
+            };
         }
     }
     public bool canSpawn;

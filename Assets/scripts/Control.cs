@@ -21,7 +21,7 @@ public class Control : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Time.timeScale > 0.0001f)
             Touch();
     }
 
@@ -31,7 +31,7 @@ public class Control : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000f, _layerMask) && !PauseMenu.paused)
         {
-            hit.transform.GetComponent<ITouchable>().Touched(hit);
+            hit.collider.GetComponent<ITouchable>().Touched(hit);
             /*if (t.childCount == 0 && U._money >= D._numberOfCards[D.CardToUse]._Cost)
             {
                 GameObject g = Instantiate(D._numberOfCards[D.CardToUse].gameObject, t.position, gameObject.transform.rotation = Quaternion.Euler(0, 90, 0)) as GameObject;
