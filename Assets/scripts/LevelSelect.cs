@@ -16,7 +16,7 @@ public class LevelSelect : MonoBehaviour
         {
             var temp = Instantiate(levelButtonPrefab, gridLayoutGroup.transform);
             temp.name = levels[i];
-            if (i >= completedLevels) {
+            if (i > completedLevels) {
                 temp.GetComponent<Button>().enabled = false;
             }
         }
