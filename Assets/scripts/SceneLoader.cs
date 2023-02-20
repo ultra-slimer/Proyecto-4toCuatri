@@ -40,7 +40,27 @@ public class SceneLoader : MonoBehaviour
     {
         if(level == "Controls" && GameSave._seenTutorial && SceneManager.GetActiveScene().name == "MainMenu")
         {
-            level = "Game";
+            level = "LevelSelect";
+        }
+        if (_asyncOperation == null)
+        {
+            _asyncOperation = SceneManager.LoadSceneAsync(level);
+            //var async = SceneManager.LoadSceneAsync(level, LoadSceneMode.Additive);
+            //SceneManager.UnloadSceneAsync(gameObject.scene);
+
+            button.gameObject.SetActive(false);
+            loadScreen.interactable = false;
+            loadScreen.blocksRaycasts = false;
+            loadBar.gameObject.SetActive(true);
+            StartCoroutine(WaitToLoadScene(_asyncOperation));
+        }
+    }
+    public void AsyncLoadScene(GameObject gameObject)
+    {
+        var level = gameObject.name;
+        if(level == "Controls" && GameSave._seenTutorial && SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            level = "LevelSelect";
         }
         if (_asyncOperation == null)
         {

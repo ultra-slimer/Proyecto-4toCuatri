@@ -23,7 +23,7 @@ public class EventSystem : MonoBehaviour
 
     public void LoadScene(string name)
     {
-        if (StaminaSystem.HaveStamina == true && name == "Controls" || (name != "Controls" && name != "Game") || SceneManager.GetActiveScene().name == "Options" || StaminaSystem.HaveStamina == true && name == "Game" )
+        if (StaminaSystem.HaveStamina == true && name == "Controls" || (name != "Controls" && !name.Contains("Level")) || SceneManager.GetActiveScene().name == "Options" || StaminaSystem.HaveStamina == true && name.Contains("Level") )
         {
             sceneLoader.AsyncLoadScene(name);
         }
