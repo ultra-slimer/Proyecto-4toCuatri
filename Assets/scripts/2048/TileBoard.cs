@@ -8,6 +8,7 @@ public class TileBoard : MonoBehaviour
     public TileState[] tileStates;
     private List<MiniGameTile> tiles;
     public MiniGameTile tilePrefab;
+    public bool waiting;
     private void Awake()
     {
         grid = GetComponentInChildren<TileGrid>();
@@ -43,6 +44,7 @@ public class TileBoard : MonoBehaviour
 
     public void MoveTiles(Vector2Int direction, int startX, int incrementX, int startY, int incrementY)
     {
+        bool changed = false;
         for (int x = startX; x >= 0 && x < grid.width; x+= incrementX)
         {
             for(int y = startY; y >= 0 && y < grid.height; y += incrementY)
@@ -50,16 +52,20 @@ public class TileBoard : MonoBehaviour
                 TileCell cell = grid.GetCell(x, y);
                 if (cell.occupied)
                 {
-                    MoveTile(cell.tile, direction);
+                    changed |= MoveTile(cell.tile, direction);
                 }
             }
         }
+        if (changed)
+        {
+            StartCoroutine(WaitForChanges());
+        }
     }
-    private void MoveTile(MiniGameTile tile, Vector2Int direction)
+    private bool MoveTile(MiniGameTile tile, Vector2Int direction)
     {
         TileCell newCell = null;
         TileCell adjacent = grid.GetAdjacentCell(tile.cell, direction);
-        while(adjacent != null)
+        while (adjacent != null)
         {
             if (adjacent.occupied)
             {
@@ -73,6 +79,18 @@ public class TileBoard : MonoBehaviour
         if (newCell != null)
         {
             tile.MoveTo(newCell);
+            return true;
         }
+
+        return false;
+    }
+
+    private IEnumerator WaitForChanges()
+    {
+        waiting = true;
+
+        yield return new WaitForSeconds(0.1f);
+
+        waiting = false;
     }
 }

@@ -11,7 +11,6 @@ public class MiniGameTile : MonoBehaviour
     public int number { get; private set; }
     private Image backGround;
     private TextMeshProUGUI text;
-
     private void Awake()
     {
         backGround = GetComponent<Image>();
@@ -46,6 +45,23 @@ public class MiniGameTile : MonoBehaviour
         }
         this.cell = cell;
         this.cell.tile = this;
-        transform.position = cell.transform.position;
+
+        StartCoroutine(Animate(cell.transform.position));
+    }
+    private IEnumerator Animate(Vector3 to)
+    {
+        float elapsed = 0f;
+        float duration = 0.1f;
+
+        Vector3 from = transform.position;
+
+        while (elapsed < duration)
+        {
+            transform.position = Vector3.Lerp(from, to, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = to;
     }
 }
