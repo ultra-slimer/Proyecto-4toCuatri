@@ -26,7 +26,7 @@ public class GameStateManager : MonoBehaviour
     public void WonGame()
     {
         GameSave._increasedGemChance = false;
-        if (GameSave._Level > levelNumber)
+        if (GameSave._Level < levelNumber)
         {
             GameSave._Level = levelNumber;
         }
