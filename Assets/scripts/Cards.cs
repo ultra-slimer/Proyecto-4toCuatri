@@ -59,7 +59,12 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     private IEnumerator ReEnableCooldown()
     {
         MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+        Light[] light = gameObject.GetComponentsInChildren<Light>();
         DeathPartycle.Play();
+        foreach (var a in light)
+        {
+            Destroy(a);
+        }
         foreach(var a in meshRenderers)
         {
             Destroy(a);
