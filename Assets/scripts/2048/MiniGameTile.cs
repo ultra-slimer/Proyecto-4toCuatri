@@ -11,6 +11,7 @@ public class MiniGameTile : MonoBehaviour
     public int number { get; private set; }
     private Image backGround;
     private TextMeshProUGUI text;
+    public bool locked;
     private void Awake()
     {
         backGround = GetComponent<Image>();
@@ -48,7 +49,7 @@ public class MiniGameTile : MonoBehaviour
 
         StartCoroutine(Animate(cell.transform.position));
     }
-    private IEnumerator Animate(Vector3 to)
+    private IEnumerator Animate(Vector3 to, bool merging = false)
     {
         float elapsed = 0f;
         float duration = 0.1f;
@@ -63,5 +64,23 @@ public class MiniGameTile : MonoBehaviour
         }
 
         transform.position = to;
+
+        if (merging)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void Merge(TileCell cell)
+    {
+        if (this.cell != null)
+        {
+            this.cell.tile = null;
+        }
+
+        this.cell = null;
+        cell.tile.locked = true;
+
+        StartCoroutine(Animate(cell.transform.position, true));
     }
 }

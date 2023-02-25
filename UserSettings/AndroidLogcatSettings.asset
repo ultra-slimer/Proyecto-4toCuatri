@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "65d5653d",
+    "m_SelectedDeviceId": "ZY22FN3XTK",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "ZY22FN3XTK",
+        "name": "com.DefaultCompany.BaseZ",
+        "processId": 20690,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,54 @@
             "deviceId": "65d5653d",
             "name": "com.miui.home",
             "processId": 32199,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 27479,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 29180,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 16291,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 18424,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 19086,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 19945,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 20333,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22FN3XTK",
+            "name": "com.DefaultCompany.BaseZ",
+            "processId": 20690,
             "exited": false
         }
     ],
