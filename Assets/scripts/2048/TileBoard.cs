@@ -10,8 +10,15 @@ public class TileBoard : MonoBehaviour
     public MiniGameTile tilePrefab;
     public bool waiting;
     public MiniGameManager gameManager;
+    public bool reachedObjective;
+    public int Objective;
     private void Awake()
     {
+        //if the number is not a power of 2, revert to default value
+        if(!((Objective & (Objective - 1)) == 0))
+        {
+            Objective = 2048;
+        }
         grid = GetComponentInChildren<TileGrid>();
         tiles = new List<MiniGameTile>();
     }
@@ -140,6 +147,10 @@ public class TileBoard : MonoBehaviour
 
         int index = Mathf.Clamp(IndexOf(b.state) + 1, 0, tileStates.Length - 1);
         int number = b.number * 2;
+        if(number == Objective)
+        {
+            reachedObjective = true;
+        }
         //print(b.state);
         //print(index);
         b.SetState(tileStates[index], number);
@@ -179,6 +190,10 @@ public class TileBoard : MonoBehaviour
         if (CheckForGameOver())
         {
             gameManager.GameOver();
+        }
+        if (reachedObjective)
+        {
+            gameManager.Victory();
         }
     }
 
