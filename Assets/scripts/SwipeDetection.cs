@@ -7,7 +7,7 @@ public class SwipeDetection : MonoBehaviour
     private Vector2 fingerDown;
     private Vector2 fingerUp;
     public bool detectSwipeOnlyAfterRelease = false;
-    public bool onlyOneSwipePerTouch = false;
+    public bool onlyOneSwipePerTouch = true;
     private bool _swipedAlready = false;
 
     public float SWIPE_THRESHOLD = 20f;
@@ -25,7 +25,7 @@ public class SwipeDetection : MonoBehaviour
             }
 
             //Detects Swipe while finger is still moving
-            if (touch.phase == TouchPhase.Moved && !_swipedAlready)
+            if (touch.phase == TouchPhase.Moved && (onlyOneSwipePerTouch && !_swipedAlready))
             {
                 if (!detectSwipeOnlyAfterRelease)
                 {
@@ -38,7 +38,7 @@ public class SwipeDetection : MonoBehaviour
             if (touch.phase == TouchPhase.Ended)
             {
                 fingerDown = touch.position;
-                if (!_swipedAlready)
+                if (onlyOneSwipePerTouch && !_swipedAlready)
                 {
                     checkSwipe();
                 }

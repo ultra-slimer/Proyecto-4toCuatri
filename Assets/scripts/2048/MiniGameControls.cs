@@ -6,6 +6,12 @@ public class MiniGameControls : SwipeDetection
 {
     public TileBoard tileBoard;
     public TileGrid tileGrid;
+
+    private void Start()
+    {
+        tileBoard = FindObjectOfType<TileBoard>();
+        tileGrid = FindObjectOfType<TileGrid>();
+    }
     public override void OnSwipeDown()
     {
         if (!tileBoard.waiting)
