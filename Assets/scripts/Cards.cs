@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
 {
     [SerializeField]
-    float _Health;
+    public float _Health;
     [SerializeField]
     float _MaxHealth;
     [SerializeField]
@@ -69,6 +69,8 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
         {
             Destroy(a);
         }
+       
+
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         
         yield return new WaitForSeconds(5);
@@ -76,4 +78,6 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
         //DeathPartycle.Play();
         Destroy(gameObject);
     }
+
+   
 }
