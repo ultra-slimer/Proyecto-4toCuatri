@@ -6,7 +6,6 @@ public class Tile : MonoBehaviour, ITouchable
 {
     public Cards occupant { get; private set; }
     public bool occupied { get; private set; }
-    public Tile frontTile, backTile;
     private Renderer renderery;
     public int materialID;
     private Vector3 _OGScale;
