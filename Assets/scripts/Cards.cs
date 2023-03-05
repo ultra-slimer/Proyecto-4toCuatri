@@ -14,7 +14,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     public Sprite AssignedCard;
     [SerializeField]
     int _gift;
-    Tile tile;
+    public Tile tile;
 
     public ParticleSystem DeathPartycle;
 
@@ -23,8 +23,6 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     private void Awake()
     {
         //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-        tile = GetComponentInParent<Tile>();
-        
     }
 
     private void Start()

@@ -29,6 +29,7 @@ public class Tile : MonoBehaviour, ITouchable
             occupant = g.GetComponent<Cards>();
             CanInteractToggle();
             g.transform.SetParent(t);
+            occupant.tile = this;
             AudioManager.Instance().Play("PlacingUnit");
 
             //Debug.Log("fun2");
