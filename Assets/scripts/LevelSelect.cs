@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelSelect : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class LevelSelect : MonoBehaviour
             temp.name = levels[i];
             if (i > completedLevels) {
                 temp.GetComponent<Button>().enabled = false;
+                temp.GetComponentInChildren<Text>().color = Color.grey;
             }
         }
     }

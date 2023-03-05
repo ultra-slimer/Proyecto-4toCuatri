@@ -16,7 +16,7 @@ public class Flamethrower : Cards, IAttack
         time += Time.deltaTime;
         if (time >= fireRate)
         {                                             
-            Attack();
+            EnemyAction();
         }
         
     }
@@ -36,7 +36,7 @@ public class Flamethrower : Cards, IAttack
         flame.SetActive(false);
     } 
 
-    public void Attack()
+    public void EnemyAction()
     {
         StartCoroutine("_ShootFire");
     }

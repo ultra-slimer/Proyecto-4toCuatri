@@ -25,10 +25,7 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
 
     void Start()
     {
-        _OGFreq = _frequencyEnemies;
-        enemyFather = _enemy.GetComponent<EnemyFather>();
-        _factory = new Factory<EnemyFather>(enemyFather);
-        _pool = new ObjectPool<EnemyFather>(_factory.Get, SmartEnemy.Enable, SmartEnemy.Disable, 10);
+        PrepareSpawner();
         if(_frequencyEnemies == 0)
         {
             spawnAction = delegate { };
@@ -66,7 +63,13 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
         spawnAction();
     }
 
-
+    public void PrepareSpawner()
+    {
+        _OGFreq = _frequencyEnemies;
+        enemyFather = _enemy.GetComponent<EnemyFather>();
+        _factory = new Factory<EnemyFather>(enemyFather);
+        _pool = new ObjectPool<EnemyFather>(_factory.Get, SmartEnemy.Enable, SmartEnemy.Disable, 10);
+    }
 
     /*IEnumerator Start()
     {

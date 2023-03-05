@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour, ITouchable
 {
+    public Cards occupant { get; private set; }
+    public bool occupied { get; private set; }
+    public Tile frontTile, backTile;
     private Renderer renderery;
     public int materialID;
     private Vector3 _OGScale;
     private Vector3 _OGPos;
+    public Vector2Int coordinates;
     private void Start()
     {
         _OGPos = transform.position;
@@ -18,9 +22,11 @@ public class Tile : MonoBehaviour, ITouchable
         renderery = gameObject.GetComponent<Renderer>();
         Transform t = hit.collider.transform;
         Control control = FindObjectOfType<Control>();
-        if (t.childCount == 0 && control.U._money >= control.D._numberOfCards[control.D.CardToUse]._Cost)
+        if (t.childCount == 0 && control.U._money >= control.D._numberOfCards[control.D.CardToUse]._Cost && !occupied)
         {
             GameObject g = Instantiate(control.D._numberOfCards[control.D.CardToUse].gameObject, t.position, Quaternion.Euler(0, 90, 0)) as GameObject;
+            occupied = true;
+            occupant = g.GetComponent<Cards>();
             CanInteractToggle();
             g.transform.SetParent(t);
             AudioManager.Instance().Play("PlacingUnit");
@@ -60,5 +66,11 @@ public class Tile : MonoBehaviour, ITouchable
             gameObject.layer = LayerMask.NameToLayer("Cuadricula");
             renderery.material = GetComponentInParent<Grid>().materials[materialID];
         }
+    }
+
+    public void EvictOccupant()
+    {
+        occupant = null;
+        occupied = false;
     }
 }

@@ -14,6 +14,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     public Sprite AssignedCard;
     [SerializeField]
     int _gift;
+    Tile tile;
 
     public ParticleSystem DeathPartycle;
 
@@ -22,6 +23,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     private void Awake()
     {
         //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        tile = GetComponentInParent<Tile>();
         
     }
 
@@ -39,7 +41,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
 
     
 
-    public virtual void Damage(float damageTaken)
+    public virtual void Damage(float damageTaken, float multiplier = 1)
     {
         Debug.Log(_Health);
         _Health -= damageTaken;
@@ -53,6 +55,7 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
     public void Death()
     {       
         UpdateMoney.updatemoney.ActMoney(_gift);
+        tile.EvictOccupant();
         StartCoroutine(ReEnableCooldown());
     }
 

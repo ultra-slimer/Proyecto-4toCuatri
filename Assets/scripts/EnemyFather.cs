@@ -19,6 +19,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     int _reward;
     [SerializeField]
     Animator _anim;
+    [SerializeField]
+    public float damageMultiplier;
 
     public Transform[] allWaypoints;
     public int waypointTarget;
@@ -74,10 +76,10 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         }
 
         
-        Attack();
+        EnemyAction();
     }
 
-    public void Attack()
+    public virtual void EnemyAction()
     {
 
         var ray = new Ray(this.transform.position, this.transform.forward);
@@ -117,7 +119,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         else _canWalk = true;
     }
 
-    public virtual void Damage(float damageTaken)
+    public virtual void Damage(float damageTaken, float multiplier = 1)
     {
         _life -= damageTaken;
         Instantiate(DamagePartycle, this.transform);

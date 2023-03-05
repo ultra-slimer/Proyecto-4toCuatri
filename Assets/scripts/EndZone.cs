@@ -23,7 +23,7 @@ public class EndZone : MonoBehaviour, IObstacle, IEndZone, IDamageable<float>
         }
     }
 
-    public void Damage(float damageTaken)
+    public void Damage(float damageTaken, float multiplier = 1)
     {
         throw new System.NotImplementedException();
     }

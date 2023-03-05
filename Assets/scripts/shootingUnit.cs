@@ -39,7 +39,7 @@ public class shootingUnit : Cards, IAttack
                 //Projectile.SetActive(true);
                 //Destroy(clone, 3);
                 //StartCoroutine("_ShootBullet");
-                Attack();
+                EnemyAction();
             };
             time = 0;
         }
@@ -59,7 +59,7 @@ public class shootingUnit : Cards, IAttack
         yield return new WaitForSeconds(temp.maxTime);
     }
 
-    public void Attack()
+    public void EnemyAction()
     {
         StartCoroutine("_ShootBullet");
     }

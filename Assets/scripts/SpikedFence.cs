@@ -11,7 +11,7 @@ public class SpikedFence : Cards, IAttackBack
         agressor.Damage(damage);
     }
 
-    public override void Damage(float damageTaken)
+    public override void Damage(float damageTaken, float multiplier = 1)
     {
         base.Damage(damageTaken);
     }
