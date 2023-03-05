@@ -8,17 +8,17 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     [SerializeField]
     float _life;
     [SerializeField]
-    float _speed;
+    public float _speed;
     [SerializeField]
-    float _attackSpeed;
+    public float _attackSpeed;
     [SerializeField]
-    float _time;
+    public float _time;
     [SerializeField]
-    float _damage;
+    public float _damage;
     [SerializeField]
     int _reward;
     [SerializeField]
-    Animator _anim;
+    public Animator _anim;
     [SerializeField]
     public float damageMultiplier;
 
@@ -27,8 +27,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 
     private EnemyFather _self;
 
-    bool _canWalk;
-    int _layerMask;
+    public bool _canWalk;
+    public int _layerMask;
 
     public ParticleSystem DamagePartycle;
 
