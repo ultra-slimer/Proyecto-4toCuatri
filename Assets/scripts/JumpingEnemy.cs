@@ -14,7 +14,15 @@ public class JumpingEnemy : EnemyFather, ISpawnable<JumpingEnemy>
     {
         if (_allowedJump)
         {
-            StartCoroutine("UseSpecialAbility");
+            var ray = new Ray(this.transform.position, this.transform.forward);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 0.5f, _layerMask) && hit.transform.GetComponent<EnemyFather>() == null)
+            {
+                StartCoroutine("UseSpecialAbility");
+            }
+            //StartCoroutine("UseSpecialAbility");
         }
         else
         {
@@ -62,22 +70,14 @@ public class JumpingEnemy : EnemyFather, ISpawnable<JumpingEnemy>
 
     private IEnumerator UseSpecialAbility()
     {
-        var ray = new Ray(this.transform.position, this.transform.forward);
+        _enemRB.AddForce(new Vector2(-waypointTarget, jumpHeight), ForceMode.Force);
 
-        RaycastHit hit;
-        //Debug.DrawRay(this.transform.position, this.transform.forward, Color.red);
+        yield return new WaitForSeconds(0.5f);
 
-        if (Physics.Raycast(ray, out hit, 0.5f, _layerMask))
-        {
-            _enemRB.AddForce(new Vector2(-waypointTarget, jumpHeight), ForceMode.Force);
 
-            yield return new WaitForSeconds(0.5f);
-
-            
-            _speed = 0.75f;
-            _allowedJump = false;
-            print("a");
-        }
+        _speed = 0.75f;
+        _allowedJump = false;
+        print("a");
 
         yield break;
 
