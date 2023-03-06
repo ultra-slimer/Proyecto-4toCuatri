@@ -12,8 +12,9 @@ public class SmartEnemy : EnemyFather, ISpawnable<SmartEnemy>
     {
         base.Awake();
     }
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         this._life = FlyweightPointer.BaseEnemy.maxLife;
         this._time = FlyweightPointer.BaseEnemy.time;
     }
