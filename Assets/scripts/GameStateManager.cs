@@ -25,6 +25,13 @@ public class GameStateManager : MonoBehaviour
     }
     public void WonGame()
     {
+        StartCoroutine(VicotryProcess());
+    }
+
+    private IEnumerator VicotryProcess()
+    {
+        Time.timeScale = 0.0001f;
+        yield return new WaitForSecondsRealtime(3);
         GameSave._increasedGemChance = false;
         if (GameSave._Level < levelNumber)
         {

@@ -7,25 +7,28 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
     [SerializeField]
     float _frequencyEnemies;
     private float _OGFreq;
-    public GameObject _enemy;
+    public List<EnemyFather> _enemys;
     private float _counter;
     [Range(1.5f, 3)]
     public float minSpawnRate;
     [Range(0, 0.5f)]
     public float increaseRatePercentage = 0.1f;
-    public int spawnAmount;
+    public List<int> spawnAmount;
     private bool won = false;
     private delegate void spawn();
     private spawn spawnAction;
+    private int totalEnemies;
 
-
-    public EnemyFather enemyFather;
-    ObjectPool<EnemyFather> _pool;
-    Factory<EnemyFather> _factory;
+    List<ObjectPool<EnemyFather>> _pool = new List<ObjectPool<EnemyFather>>();
+    List<Factory<EnemyFather>> _factory = new List<Factory<EnemyFather>>();
 
     void Start()
     {
-        PrepareSpawner();
+        for (int i = 0; i < _enemys.Count; i++)
+        {
+            PrepareSpawner(_enemys[i]);
+            totalEnemies = spawnAmount[i];
+        }
         if(_frequencyEnemies == 0)
         {
             spawnAction = delegate { };
@@ -35,15 +38,21 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
             spawnAction = delegate
             {
                 _counter += Time.deltaTime;
-                if (_counter >= _frequencyEnemies && gameObject.activeSelf && spawnAmount > 0)
+                if (_counter >= _frequencyEnemies && gameObject.activeSelf && totalEnemies > 0)
                 {
-                    _frequencyEnemies = Mathf.Clamp(_frequencyEnemies * (100 - (100 * increaseRatePercentage)) * 0.01f, minSpawnRate, _OGFreq);
-                    print(_frequencyEnemies);
-                    GetOne();
-                    _counter = 0;
-                    spawnAmount -= 1;
+                    bool _spawned = false;
+                    while (!_spawned)
+                    {
+                        var a = Random.Range(0, spawnAmount.Count - 1);
+                        if(_enemys[a] && spawnAmount[a] > 0)
+                        {
+                            _frequencyEnemies = Mathf.Clamp(_frequencyEnemies * (100 - (100 * increaseRatePercentage)) * 0.01f, minSpawnRate, _OGFreq);
+                            SpawnEnemy(a);
+                            _spawned = true;
+                        }
+                    }
                 }
-                else if (spawnAmount == 0 && FindObjectsOfType<SmartEnemy>().Length == 0 && !won)
+                else if (totalEnemies == 0 && FindObjectsOfType<EnemyFather>().Length == 0 && !won)
                 {
                     GameStateManager.gameStateManager.WonGame();
                     won = true;
@@ -63,12 +72,30 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
         spawnAction();
     }
 
-    public void PrepareSpawner()
+    public void PrepareSpawner(EnemyFather enemy)
     {
         _OGFreq = _frequencyEnemies;
-        enemyFather = _enemy.GetComponent<EnemyFather>();
-        _factory = new Factory<EnemyFather>(enemyFather);
-        _pool = new ObjectPool<EnemyFather>(_factory.Get, SmartEnemy.Enable, SmartEnemy.Disable, 10);
+        var temp = new Factory<EnemyFather>(enemy);
+        _factory.Add(temp);
+        _pool.Add( new ObjectPool<EnemyFather>(temp.Get, EnemyFather.Enable, EnemyFather.Disable, 2));
+    }
+
+    private void SpawnEnemy(int enemyID)
+    {
+        GetOne(enemyID);
+        _counter = 0;
+        if(spawnAmount[enemyID] > 0)
+        {
+            spawnAmount[enemyID] -= 1;
+            totalEnemies -= 1;
+        }
+        else
+        {
+            _enemys.RemoveAt(enemyID);
+            spawnAmount.RemoveAt(enemyID);
+            _factory.RemoveAt(enemyID);
+            _pool.RemoveAt(enemyID);
+        }
     }
 
     /*IEnumerator Start()
@@ -87,27 +114,37 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
         }
     }*/
 
-    public EnemyFather GetOne()
+    public EnemyFather GetOne(int enemyID)
     {
-        enemyFather = _pool.GetObject();
+        var enemyFather = _pool[enemyID].GetObject();
         var temp = Random.Range(0, 5);
         enemyFather.waypointTarget = temp;
         enemyFather.transform.position = spawnPoints[temp].position;
-        enemyFather.Create(_pool);
+        enemyFather.Create(_pool[enemyID]);
         return enemyFather;
     }
 
-    public EnemyFather GetOne(int waypoint)
+    public EnemyFather GetOne(int enemyID, int waypoint)
     {
-        enemyFather = _pool.GetObject();
+        var enemyFather = _pool[enemyID].GetObject();
         enemyFather.waypointTarget = waypoint;
         enemyFather.transform.position = spawnPoints[waypoint].position;
-        enemyFather.Create(_pool);
+        enemyFather.Create(_pool[enemyID]);
         return enemyFather;
+    }
+
+    public void EndOne(int enemyID, EnemyFather one)
+    {
+        _pool[enemyID].ReturnObject(one);
+    }
+
+    public EnemyFather GetOne()
+    {
+        throw new System.NotImplementedException();
     }
 
     public void EndOne(EnemyFather one)
     {
-        _pool.ReturnObject(one);
+        throw new System.NotImplementedException();
     }
 }

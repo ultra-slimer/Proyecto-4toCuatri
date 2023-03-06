@@ -6,7 +6,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 {
     public string[] ReactingLayers = { "Unit", "Enemy", "EndZone" };
     [SerializeField]
-    float _life;
+    public float _life;
     [SerializeField]
     public float _speed;
     [SerializeField]
@@ -16,11 +16,12 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     [SerializeField]
     public float _damage;
     [SerializeField]
-    int _reward;
+    public int _reward;
     [SerializeField]
     public Animator _anim;
     [SerializeField]
     public float damageMultiplier;
+    private float _OGLife;
 
     public Transform[] allWaypoints;
     public int waypointTarget;
@@ -37,9 +38,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
 
     
 
-    private void Awake()
+    public virtual void Awake()
     {
-        _time = FlyweightPointer.BaseEnemy.time;
         _canWalk = true;
         _layerMask = LayerMask.GetMask(ReactingLayers);
         _self = this;
@@ -49,15 +49,6 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     private void OnEnable()
     {
         DamagePartycle.Pause();
-    }
-
-    public void Start()
-    {
-        _life = FlyweightPointer.BaseEnemy.maxLife;
-        _damage = FlyweightPointer.BaseEnemy.damage;
-        _reward = FlyweightPointer.BaseEnemy.reward;
-        _attackSpeed = FlyweightPointer.BaseEnemy.attackSpeed;
-        _speed = FlyweightPointer.BaseEnemy.speed;
     }
 
     public override void Update()
@@ -79,45 +70,7 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
         EnemyAction();
     }
 
-    public virtual void EnemyAction()
-    {
-
-        var ray = new Ray(this.transform.position, this.transform.forward);
-       
-        RaycastHit hit;
-        Debug.DrawRay(this.transform.position, this.transform.forward, Color.yellow);
-        if (Physics.Raycast(ray, out hit, 1f, _layerMask))
-        {
-           
-            _time += Time.deltaTime;
-            _anim.SetBool("_isFollowing", false);
-            _canWalk = false;
-            if (_attackSpeed <= _time && hit.transform.GetComponent<IDamageable<float>>() != null && hit.transform.GetComponent<EnemyFather>() == null)
-            {
-                _time = 0;
-
-                _anim.SetBool("_isAttacking", true);
-                //Cards pipo = Cards.Instance();
-                //GetComponent<Cards>().Damage(_damage);
-                //C.Damage(_damage);
-
-                if (hit.collider.GetComponent<IEndZone>() != null)
-                {
-                    print("a");
-                    hit.collider.GetComponent<IEndZone>().Damage(1, this);
-
-                }
-                else
-                {
-
-                    hit.collider.GetComponent<IDamageable<float>>().Damage(_damage);
-                    AudioManager.Instance().Play("EnemyAttack");
-                }
-                hit.collider.GetComponent<IAttackBack>()?.AttackAgressor(_damage, this);
-            }
-        }
-        else _canWalk = true;
-    }
+    public virtual void EnemyAction() { }
 
     public virtual void Damage(float damageTaken, float multiplier = 1)
     {

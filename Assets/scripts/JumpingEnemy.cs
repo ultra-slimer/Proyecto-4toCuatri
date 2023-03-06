@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpingEnemy : EnemyFather, ISpawnable<JumpingEnemy>
+public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
 {
 
     bool _allowedJump = true;
@@ -10,6 +10,14 @@ public class JumpingEnemy : EnemyFather, ISpawnable<JumpingEnemy>
     [SerializeField] Rigidbody _enemRB;
 
 
+    private void Start()
+    {
+        _life = FlyweightPointer.JumpEnemy.maxLife;
+        _damage = FlyweightPointer.JumpEnemy.damage;
+        _speed = FlyweightPointer.JumpEnemy.speed;
+        _reward = FlyweightPointer.JumpEnemy.reward;
+        _time = FlyweightPointer.JumpEnemy.time;
+    }
     public override void EnemyAction()
     {
         if (_allowedJump)
@@ -108,7 +116,7 @@ public class JumpingEnemy : EnemyFather, ISpawnable<JumpingEnemy>
         
     }
 
-    public void SaveThing(JumpingEnemy newThing)
+    public void SaveThing(JumpEnemy newThing)
     {
         self = newThing;
     }
