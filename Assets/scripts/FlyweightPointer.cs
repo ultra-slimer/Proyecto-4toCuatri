@@ -27,6 +27,15 @@ public static class FlyweightPointer
 
     };
 
+    public static readonly Flyweight BoostEnemy = new Flyweight
+    {
+        maxLife = 1,
+        speed = 0,
+        attackSpeed = 0,
+        reward = 15,
+        damage = 2
+    };
+
 }
    
 

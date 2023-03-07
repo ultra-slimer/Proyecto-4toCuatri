@@ -89,13 +89,13 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
             spawnAmount[enemyID] -= 1;
             totalEnemies -= 1;
         }
-        else
+        /*else
         {
             _enemys.RemoveAt(enemyID);
             spawnAmount.RemoveAt(enemyID);
             _factory.RemoveAt(enemyID);
             _pool.RemoveAt(enemyID);
-        }
+        }*/
     }
 
     /*IEnumerator Start()

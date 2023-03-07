@@ -79,19 +79,5 @@ public class Cards : MonoBehaviour, IDamageable<float>, IKillable, IObstacle
         //DeathPartycle.Play();
         Destroy(gameObject);
     }
-
-    void aaaaaa()
-    {
-        if (Grid.instance.RowHasAvailableTile(tile.coordinates.y)) {
-            int x;
-            do
-            {
-                x = Random.Range(0, Grid.instance.rows.Length - 1);
-            } while (Grid.instance.GetTile(x, tile.coordinates.y).occupied);
-            var position = Grid.instance.GetTilePosition(new Vector2Int(x, tile.coordinates.y));
-            //cambiar valor de Y de position para que este por arriba de la tile y esa es la posicion de inicio del proyectil
-        //spawnea proyectil, y se le da las coordenadas Grid.Instance.
-        }
-    }
    
 }

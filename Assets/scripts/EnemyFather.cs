@@ -52,6 +52,14 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     {
         DamagePartycle.Pause();
     }
+    public virtual void Start()
+    {
+        _life = flyweight.maxLife;
+        _damage = flyweight.damage;
+        _speed = flyweight.speed;
+        _reward = flyweight.reward;
+        _time = flyweight.time;
+    }
 
     public override void Update()
     {

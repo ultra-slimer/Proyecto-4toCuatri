@@ -18,14 +18,28 @@ public class SmartEnemy : EnemyFather, ISpawnable<SmartEnemy>
         _life = flyweight.maxLife;
         _time = flyweight.time;
     }
-    private void Start()
+    public override void Start()
     {
         flyweight = FlyweightPointer.BaseEnemy;
-        _life = flyweight.maxLife;
-        _damage = flyweight.damage;
-        _speed = flyweight.speed;
-        _reward = flyweight.reward;
-        _time = flyweight.time;
+        base.Start();
+    }
+    public override void Update()
+    {
+        if (_canWalk)
+        {
+            Transform nextWaypoint = allWaypoints[waypointTarget];
+            Vector3 dir = nextWaypoint.position - transform.position;
+            dir.y = 0;
+            transform.forward = dir;
+            transform.position += transform.forward * _speed * Time.deltaTime;
+
+            _anim.SetBool("_isFollowing", true);
+            _anim.SetBool("_isAttacking", false);
+
+        }
+
+
+        EnemyAction();
     }
     public override void EnemyAction()
     {

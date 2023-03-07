@@ -11,14 +11,10 @@ public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
     Rigidbody _enemRB;
 
 
-    private void Start()
+    public override void Start()
     {
         flyweight = FlyweightPointer.JumpEnemy;
-        _life = flyweight.maxLife;
-        _damage = flyweight.damage;
-        _speed = flyweight.speed;
-        _reward = flyweight.reward;
-        _time = flyweight.time;
+        base.Start();
     }
     public override void EnemyAction()
     {
