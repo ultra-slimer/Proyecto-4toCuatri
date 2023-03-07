@@ -19,11 +19,11 @@ public static class FlyweightPointer
     //Enemigo que salta (todavia no implementado)
     public static readonly Flyweight JumpEnemy = new Flyweight
     {
-        maxLife = 0,
-        speed = 0,
-        attackSpeed = 0,
-        reward = 0,
-        damage = 0
+        maxLife = 15,
+        speed = 1,
+        attackSpeed = 1.5f,
+        reward = 30,
+        damage = 5
 
     };
 
