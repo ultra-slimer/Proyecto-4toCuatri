@@ -34,9 +34,9 @@ public class Grid : MonoBehaviour
         Vector2Int a = baseTile.coordinates;
         a.x += direction.x;
         a.y -= direction.y;
-        return Grid.instance.GetCell(a.x, a.y);
+        return Grid.instance.GetTile(a.x, a.y);
     }
-    private Tile GetCell(int x, int y)
+    public Tile GetTile(int x, int y)
     {
         if (x >= 0 && x < width && y >= 0 && y < height)
         {
@@ -46,5 +46,22 @@ public class Grid : MonoBehaviour
         {
             return null;
         }
+    }
+
+    public Vector3 GetTilePosition(Vector2Int coordinates)
+    {
+        return rows[coordinates.y].cells[coordinates.x].transform.position;
+    }
+
+    public bool RowHasAvailableTile(int y)
+    {
+        foreach (var tile in rows[y].cells)
+        {
+            if (!tile.occupied)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

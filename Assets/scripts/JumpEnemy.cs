@@ -7,7 +7,8 @@ public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
 
     bool _allowedJump = true;
     public float jumpHeight;
-    [SerializeField] Rigidbody _enemRB;
+    [SerializeField] 
+    Rigidbody _enemRB;
 
 
     private void Start()

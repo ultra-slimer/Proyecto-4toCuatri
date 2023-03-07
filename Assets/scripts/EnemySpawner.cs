@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour, ISpawner<EnemyFather>
                     bool _spawned = false;
                     while (!_spawned)
                     {
-                        var a = Random.Range(0, spawnAmount.Count - 1);
+                        var a = Random.Range(0, spawnAmount.Count);
                         if(_enemys[a] && spawnAmount[a] > 0)
                         {
                             _frequencyEnemies = Mathf.Clamp(_frequencyEnemies * (100 - (100 * increaseRatePercentage)) * 0.01f, minSpawnRate, _OGFreq);
