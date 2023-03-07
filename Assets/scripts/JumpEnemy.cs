@@ -96,7 +96,7 @@ public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
         else
         {
             _canWalk = true;
-            _allowedJump = true;
+            //_allowedJump = true;
         }
         
        
