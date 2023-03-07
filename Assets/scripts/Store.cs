@@ -61,7 +61,9 @@ public class Store : MonoBehaviour
                 {
                     GameSave._bonusReward = true;
                     AudioManager.Instance().Play("Positive");
-                    GemManager.AddGems(-bought.price); 
+                    GemManager.AddGems(-bought.price);
+                    GameManager.Trigger("SaveRemotely");
+                    //GameManager.Trigger("UpdateEditorValues");
                     ScreenManager.instance.CloseAll();
                 }
                 break;
@@ -78,6 +80,8 @@ public class Store : MonoBehaviour
                     GameSave._increasedGemChance = true;
                     AudioManager.Instance().Play("Positive");
                     GemManager.AddGems(-bought.price);
+                    GameManager.Trigger("SaveRemotely");
+                    //GameManager.Trigger("UpdateEditorValues");
                     ScreenManager.instance.CloseAll();
                 }
                 break;

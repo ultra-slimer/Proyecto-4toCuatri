@@ -190,6 +190,7 @@ public class GameSave : MonoBehaviour, ISaveable<GameSave>, ILoadable<GameSave>
         {
             GameSave._gameSave.FileName();
             _gameSave.SaveFile(_gameSave);
+            UpdateEditorValues();
         }
     }
 }
