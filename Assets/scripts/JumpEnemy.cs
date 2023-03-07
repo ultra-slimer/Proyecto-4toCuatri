@@ -18,6 +18,7 @@ public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
     }
     public override void EnemyAction()
     {
+        /*
         if (_allowedJump)
         {
             var ray = new Ray(this.transform.position, this.transform.forward);
@@ -27,7 +28,7 @@ public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
             if (Physics.Raycast(ray, out hit, 0.5f, _layerMask) && hit.transform.GetComponent<EnemyFather>() == null)
             {
                 var a = hit.transform.GetComponent<Cards>();
-                if (!Grid.GetNeighbor(a.tile, Vector2Int.left).occupied)
+                if (a != null && !Grid.GetNeighbor(a.tile, Vector2Int.left).occupied)
                 {
                     StartCoroutine("UseSpecialAbility");
                 }
@@ -46,14 +47,63 @@ public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
         {
             Attack();
         }
+        */
 
-        
+        var ray = new Ray(this.transform.position, this.transform.forward);
 
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1f, _layerMask))
+        {
+            var a = hit.transform.GetComponent<Cards>();
+            if (a != null && _allowedJump && !Grid.GetNeighbor(a.tile, Vector2Int.left).occupied)
+            {
+                StartCoroutine("UseSpecialAbility");
+            }
+            else
+            {
+                _time += Time.deltaTime;
+                _anim.SetBool("_isFollowing", false);
+                _canWalk = false;
+                if (_attackSpeed <= _time && hit.transform.GetComponent<IDamageable<float>>() != null && hit.transform.GetComponent<EnemyFather>() == null)
+                {
+                    _time = 0;
+
+                    _anim.SetBool("_isAttacking", true);
+                    //Cards pipo = Cards.Instance();
+                    //GetComponent<Cards>().Damage(_damage);
+                    //C.Damage(_damage);
+
+                    if (hit.collider.GetComponent<IEndZone>() != null)
+                    {
+                        //print("a");
+                        hit.collider.GetComponent<IEndZone>().Damage(1, this);
+
+                    }
+                    else
+                    {
+
+                        hit.collider.GetComponent<IDamageable<float>>().Damage(_damage);
+                        AudioManager.Instance().Play("EnemyAttack");
+                    }
+                    hit.collider.GetComponent<IAttackBack>()?.AttackAgressor(_damage, this);
+                }
+            }
+
+          
+
+           
+        }
+        else
+        {
+            _canWalk = true;
+        }
     }
 
+    /*
     public void Attack()
     {
-        _allowedJump= false;
+        //_allowedJump= false;
 
         var ray = new Ray(this.transform.position, this.transform.forward);
 
@@ -97,6 +147,7 @@ public class JumpEnemy : EnemyFather, ISpawnable<JumpEnemy>
         
        
     }
+    */
 
     private IEnumerator UseSpecialAbility()
     {
