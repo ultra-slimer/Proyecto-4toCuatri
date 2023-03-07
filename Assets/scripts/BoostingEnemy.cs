@@ -14,4 +14,8 @@ public class BoostingEnemy : EnemyFather, ISpawnable<BoostingEnemy>
     public override void EnemyAction()
     {
     }
+
+    private void Start()
+    {
+    }
 }

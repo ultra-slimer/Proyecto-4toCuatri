@@ -21,6 +21,8 @@ public abstract class EnemyFather : Spawnables<EnemyFather, ISpawner<EnemyFather
     public Animator _anim;
     [SerializeField]
     public float damageMultiplier;
+    [SerializeField]
+    public Flyweight flyweight;
     private float _OGLife;
 
     public Transform[] allWaypoints;

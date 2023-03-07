@@ -15,16 +15,17 @@ public class SmartEnemy : EnemyFather, ISpawnable<SmartEnemy>
     public override void OnEnable()
     {
         base.OnEnable();
-        this._life = FlyweightPointer.BaseEnemy.maxLife;
-        this._time = FlyweightPointer.BaseEnemy.time;
+        _life = flyweight.maxLife;
+        _time = flyweight.time;
     }
     private void Start()
     {
-        this._life = FlyweightPointer.BaseEnemy.maxLife;
-        this._damage = FlyweightPointer.BaseEnemy.damage;
-        this._speed = FlyweightPointer.BaseEnemy.speed;
-        this._reward = FlyweightPointer.BaseEnemy.reward;
-        this._time = FlyweightPointer.BaseEnemy.time;
+        flyweight = FlyweightPointer.BaseEnemy;
+        _life = flyweight.maxLife;
+        _damage = flyweight.damage;
+        _speed = flyweight.speed;
+        _reward = flyweight.reward;
+        _time = flyweight.time;
     }
     public override void EnemyAction()
     {
